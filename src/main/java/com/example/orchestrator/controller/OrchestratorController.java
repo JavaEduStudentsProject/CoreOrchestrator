@@ -30,29 +30,35 @@ public class OrchestratorController {
 //          messageProducer.sendMessage(product, "parser");
     }
 
+    // Получаю файл от парсера и отправляю в базу
     @KafkaListener(topics = "parser", containerFactory = "kafkaListenerContainerFactory")
     public void listener(String product) throws IOException, InterruptedException {
         log.info("Listener orchestrator: from parser String, parser " + product);
-          messageProducer.sendMessage(product, "save");
+          messageProducer.sendMessage(product, "SaveHamsters");
     }
-
-//пробовали отправить на фронт
-//    @GetMapping("/orchestra")
-//    public String show(String product) {
-//        //System.out.println("Recieved message: from parser String " + product);
-//        String string=product;
-//        //  messageProducer.sendMessage(product);
-//        return "";
-//    }
-
-    //принимаем файл с фронта и передаем в парсер
     @GetMapping()
     @KafkaListener(topics = "topicFrontToParser", containerFactory = "kafkaListenerContainerFactory")
     public void listener() {
-        File file = new File("/Users/elizavetakabak/repos/Parser/src/main/resources/file.csv");
+        File file = new File("/Users/ob_so/IdeaProjects/MarketPlace/Parser/src/main/resources/file.csv");
         log.info("Listener orchestrator: file from Front {}", file.getName());
         messageProducerFile.sendMessage(file, "topicFrontToParser");
         log.info("Producer orchestrator: file {} to Parser, topicFrontToParser", file.getName());
+    }
+
+    // Гет продукт от фронта в базу
+    @KafkaListener(topics = "GetHamster", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetProduct(String id){
+    log.info("Get request from Front 'get product'");
+    messageProducer.sendMessage(id, "GetProduct");// направляем запрос в базу
+    log.info("Redirect request to Database 'get product' with id = {}", id);
+    }
+
+    // Получаю продукт от базы
+    @KafkaListener(topics = "SendHamster", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetProductResponse(String product){
+        log.info("Get response to a request from Database 'get product'");
+        messageProducer.sendMessage(product, "SendProduct");// направляю продукт на фронт
+        log.info("Send response to front 'get product' = {}", product);
     }
 
 }
