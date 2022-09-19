@@ -1,4 +1,4 @@
-package com.example.orchestrator.Model;
+package com.example.orchestrator.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
