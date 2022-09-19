@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-//import java.lang.annotation.Documented;
 
 @Getter
 @Setter
@@ -17,4 +16,7 @@ public class JsonHamsterItem {
     @Id
     private Integer id;
     private String itemJson;
+
+
+
 }
