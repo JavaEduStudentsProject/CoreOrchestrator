@@ -26,50 +26,74 @@ public class KafkaTopicConfig {
     }
 
     @Bean
-    public NewTopic parseFile() {
-        log.info("Create orchestrator topic parseFile");
-        return new NewTopic("parseFile", 1, (short) 1);
+    public NewTopic parseFileFront() {
+        log.info("Create orchestrator topic parseFileFront");
+        return new NewTopic("parseFileFront", 1, (short) 1);
+    }
+
+    //нужно ли создавать топик конфиги для продюсера?
+//    @Bean
+//    public NewTopic parseFileParser() {
+//        log.info("Create orchestrator topic parseFileParser");
+//        return new NewTopic("parseFileParser", 1, (short) 1);
+//    }
+//    @Bean
+//    public NewTopic getProductFromDB() {
+//        log.info("Create orchestrator topic getProductFromDB");
+//        return new NewTopic("getProductFromDB", 1, (short) 1);
+//    }
+    @Bean
+    public NewTopic frontGetProduct() {
+        log.info("Create orchestrator topic frontGetProduct");
+        return new NewTopic("frontGetProduct", 1, (short) 1);
     }
 
     @Bean
-    public NewTopic getProduct() {
-        log.info("Create orchestrator topic getProduct");
-        return new NewTopic("getProduct", 1, (short) 1);
+    public NewTopic frontGetAllProducts() {
+        log.info("Create orchestrator topic frontGetAllProducts");
+        return new NewTopic("frontGetAllProducts", 1, (short) 1);
     }
 
     @Bean
-    public NewTopic getAllProducts() {
-        log.info("Create orchestrator topic getAllProducts");
-        return new NewTopic("getAllProducts", 1, (short) 1);
+    public NewTopic sendALlProductsDB() {
+        log.info("Create orchestrator topic sendALlProductsDB");
+        return new NewTopic("sendALlProductsDB", 1, (short) 1);
     }
 
     @Bean
-    public NewTopic saveProduct() {
+    public NewTopic frontSaveProduct() {
         log.info("Create orchestrator topic saveProduct");
         return new NewTopic("saveProduct", 1, (short) 1);
     }
+
     @Bean
     public NewTopic save() {
         log.info("Create orchestrator topic save");
         return new NewTopic("save", 1, (short) 1);
     }
+
     @Bean
-    public NewTopic deleteProduct() {
-        log.info("Create orchestrator topic deleteProduct");
-        return new NewTopic("deleteProduct", 1, (short) 1);
+    public NewTopic frontDeleteProduct() {
+        log.info("Create orchestrator topic frontDeleteProduct");
+        return new NewTopic("frontDeleteProduct", 1, (short) 1);
     }
 
     @Bean
-    public NewTopic updateProduct() {
-        log.info("Create orchestrator topic updateProduct");
-        return new NewTopic("updateProduct", 1, (short) 1);
+    public NewTopic frontUpdateProduct() {
+        log.info("Create orchestrator topic frontUpdateProduct");
+        return new NewTopic("frontUpdateProduct", 1, (short) 1);
     }
 
     @Bean
-    public NewTopic sendProduct() {
-        log.info("Create orchestrator topic sendProduct");
-        return new NewTopic("sendProduct", 1, (short) 1);
+    public NewTopic sendProductFromDB() {
+        log.info("Create orchestrator topic sendProductFromDB");
+        return new NewTopic("sendProductFromDB", 1, (short) 1);
     }
+//    @Bean
+//    public NewTopic sendProductToFront() {
+//        log.info("Create orchestrator topic sendProductToFront");
+//        return new NewTopic("sendProductToFront", 1, (short) 1);
+//    }
 
     @Bean
     public NewTopic sendAllProduct() {
@@ -83,8 +107,8 @@ public class KafkaTopicConfig {
     }
 
     @Bean
-    public NewTopic topicParser() {
+    public NewTopic sendParsedString() {
         log.info("Create orchestrator topic parser");
-        return new NewTopic("parser", 1, (short) 1);
+        return new NewTopic("sendParsedString", 1, (short) 1);
     }
 }

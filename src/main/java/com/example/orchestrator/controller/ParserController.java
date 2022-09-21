@@ -31,7 +31,7 @@ public class ParserController {
 //    }
 
     // Получаю файл от парсера и отправляю в базу
-    @KafkaListener(topics = "parser", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "sendParsedString", containerFactory = "kafkaListenerContainerFactory")
     public void listener(String product) throws IOException, InterruptedException {
         log.info("Listener orchestrator: from parser String, parser " + product);
           messageProducer.sendMessage(product, "save");

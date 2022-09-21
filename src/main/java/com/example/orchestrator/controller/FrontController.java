@@ -23,48 +23,52 @@ public class FrontController {
         this.messageProducer = messageProducer;
         this.messageProducerFile = messageProducerFile;
     }
+
     @GetMapping()
-    @KafkaListener(topics = "parseFile", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "parseFileFront", containerFactory = "kafkaListenerContainerFactory")
+    //Добавить файл на вход
     public void listenerParseFile() {
         File file = new File("CoreOrchestrator/file.csv");
         log.info("Listener orchestrator: file from Front {}", file.getName());
-        messageProducerFile.sendMessage(file, "parseFile");
-        log.info("Producer orchestrator: file {} to Parser, topicFrontToParser", file.getName());
+        messageProducerFile.sendMessage(file, "parseFileParser");
+        log.info("Producer orchestrator: file {} to Parser, parseFileParser", file.getName());
     }
+
     @GetMapping("/get")
     // Гет продукт от фронта в базу//
-    @KafkaListener(topics = "getProduct", containerFactory = "kafkaListenerContainerFactory")
-    public void listenerGetProduct(String id) {
-               id="1";
+    @KafkaListener(topics = "frontGetProduct", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetProduct() {
+        String id = "728";
         log.info("Get request from Front 'get product'");
-        messageProducer.sendMessage(id, "getProduct");// направляем запрос в базу
+        messageProducer.sendMessage(id, "getProductFromDB");// направляем запрос в базу
         log.info("Redirect request to Database 'get product' with id = {}", id);
     }
+
     //этого метода пока нет в бд
-//    @KafkaListener(topics = "getAllProducts", containerFactory = "kafkaListenerContainerFactory")
+//    @KafkaListener(topics = "frontGetAllProducts", containerFactory = "kafkaListenerContainerFactory")
 //    public void listenerGetAllProducts(String products) {
 //        log.info("Get request from Front 'get all products'");
-//        messageProducer.sendMessage(products, "getAllProducts");// направляем запрос в базу
+//        messageProducer.sendMessage(products, "getAllProductsDB");// направляем запрос в базу
 //        log.info("Redirect request to Database 'get product' with id = {}", products);
 //    }
-    @KafkaListener(topics = "saveProduct", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveProduct(String product) {
         log.info("Get request from Front 'save product'");
-        messageProducer.sendMessage(product, "saveProduct");// направляем запрос в базу
+        messageProducer.sendMessage(product, "saveProductDB");// направляем запрос в базу
         log.info("Redirect request to Database 'save product' with id = {}", product);
     }
 
-    @KafkaListener(topics = "deleteProduct", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "frontDeleteProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerDeleteProduct(String id) {
         log.info("Get request from Front 'delete product'");
-        messageProducer.sendMessage(id, "deleteProduct");// направляем запрос в базу
+        messageProducer.sendMessage(id, "deleteProductDB");// направляем запрос в базу
         log.info("Redirect request to Database 'delete product' with id = {}", id);
     }
 
-    @KafkaListener(topics = "updateProduct", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "frontUpdateProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerUpdateProduct(String id) {
         log.info("Get request from Front 'update product'");
-        messageProducer.sendMessage(id, "updateProduct");// направляем запрос в базу
+        messageProducer.sendMessage(id, "updateProductDB");// направляем запрос в базу
         log.info("Redirect request to Database 'update product' with id = {}", id);
     }
 
