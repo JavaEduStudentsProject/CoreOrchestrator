@@ -9,15 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class DataBaseController {
-
     MessageProducer messageProducer;
 
     @Autowired
     public DataBaseController(MessageProducer messageProducer) {
         this.messageProducer = messageProducer;
-
     }
-
     // Получаю продукт от базы
     @KafkaListener(topics = "sendProductFromDB", containerFactory = "kafkaListenerContainerFactory")
     public void listenerGetProductResponse(String product) {
@@ -33,5 +30,18 @@ public class DataBaseController {
 //        log.info("Send response to front 'get product' = {}", products);
 //    }
 
+    @KafkaListener(topics = "SendOrder", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetOrderResponse(String product) {
+        log.info("Get response to a request from Database 'get order'");
+        messageProducer.sendMessage(product, "sendOrderToFront");// направляю продукт на фронт
+        log.info("Send response to front 'get order' = {}", product);
+    }
+
+    @KafkaListener(topics = "SendUser", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetUserResponse(String user) {
+        log.info("Get response to a request from Database 'get user'");
+        messageProducer.sendMessage(user, "sendUserToFront");// направляю продукт на фронт
+        log.info("Send response to front 'get user' = {}", user);
+    }
 
 }

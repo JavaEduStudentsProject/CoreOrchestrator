@@ -71,5 +71,61 @@ public class FrontController {
         messageProducer.sendMessage(id, "updateProductDB");// направляем запрос в базу
         log.info("Redirect request to Database 'update product' with id = {}", id);
     }
+    @KafkaListener(topics = "frontSaveOrder", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerSaveOrder(String order) {
+        log.info("Get request from Front 'save order'");
+        messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'save order' order = {}", order);
+    }
+
+    @KafkaListener(topics = "frontGetOrder", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetOrder(String id) {
+        log.info("Get request from Front 'get order'");
+        messageProducer.sendMessage(id, "getOrderFromDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'get order' with id = {}", id);
+    }
+
+    @KafkaListener(topics = "frontDeleteOrder", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerDeleteOrder(String id) {
+        log.info("Get request from Front 'delete order'");
+        messageProducer.sendMessage(id, "deleteProductDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'delete product' with id = {}", id);
+    }
+
+    @KafkaListener(topics = "frontUpdateOrder", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerUpdateOrder(String id) {
+        log.info("Get request from Front 'update order'");
+        messageProducer.sendMessage(id, "updateOrderDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'update order' with id = {}", id);
+    }
+    @KafkaListener(topics = "frontSaveUser", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerSaveUser(String user) {
+        log.info("Get request from Front 'save user'");
+        messageProducer.sendMessage(user, "saveUserDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'save user' user = {}", user);
+    }
+
+    @KafkaListener(topics = "frontGetUser", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetUser(String id) {
+        log.info("Get request from Front 'get user'");
+        messageProducer.sendMessage(id, "getUserFromDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'get user' with id = {}", id);
+    }
+
+    @KafkaListener(topics = "frontDeleteUser", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerDeleteUser(String id) {
+        log.info("Get request from Front 'delete user'");
+        messageProducer.sendMessage(id, "deleteUserDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'delete user' with id = {}", id);
+    }
+
+    @KafkaListener(topics = "frontUpdateUser", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerUpdateUser(String id) {
+        log.info("Get request from Front 'update user'");
+        messageProducer.sendMessage(id, "updateUserDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'update order' with id = {}", id);
+    }
+
+
 
 }
