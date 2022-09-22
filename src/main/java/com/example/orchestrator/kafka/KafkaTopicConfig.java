@@ -102,13 +102,45 @@ public class KafkaTopicConfig {
     }
 
     @Bean
-    public NewTopic topicReact() {
-        return new NewTopic("test-topic", 2, (short) 1);
-    }
-
-    @Bean
     public NewTopic sendParsedString() {
         log.info("Create orchestrator topic parser");
         return new NewTopic("sendParsedString", 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic frontSaveOrder() {
+        return new NewTopic("frontSaveOrder", 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic frontGetOrder() {
+        return new NewTopic("frontGetOrder", 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic frontDeleteOrder() {
+        return new NewTopic("frontDeleteOrder", 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic frontUpdateOrder() {
+        return new NewTopic("frontUpdateOrder", 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic frontSaveUser() {
+        return new NewTopic("frontSaveUser", 1, (short) 1);
+    }
+    @Bean
+    public NewTopic frontGetUser() {
+        return new NewTopic("frontGetUser", 1, (short) 1);
+    }
+    @Bean
+    public NewTopic frontDeleteUser() {
+        return new NewTopic("frontDeleteUser", 1, (short) 1);
+    }
+    @Bean
+    public NewTopic frontUpdateUser() {
+        return new NewTopic("frontUpdateUser", 1, (short) 1);
     }
 }
