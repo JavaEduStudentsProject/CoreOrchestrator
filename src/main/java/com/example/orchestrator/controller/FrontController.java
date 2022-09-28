@@ -24,6 +24,7 @@ public class FrontController {
         this.messageProducerFile = messageProducerFile;
     }
 
+
     @GetMapping()
     @KafkaListener(topics = "parseFileFront", containerFactory = "kafkaListenerContainerFactory")
     //Добавить файл на вход
@@ -33,6 +34,17 @@ public class FrontController {
         messageProducerFile.sendMessage(file, "parseFileParser");
         log.info("Producer orchestrator: file {} to Parser, parseFileParser", file.getName());
     }
+    @KafkaListener(topics = "test-topic", containerFactory = "kafkaListenerContainerFactory")
+    //Добавить файл на вход
+    public void listenerTestTopic(String test) {
+        log.info("Listener Test: string from Front {}", test);
+    }
+    @GetMapping("/test")
+    public void Test(){
+        messageProducer.sendMessage("product", "testTopic2");
+    }
+
+
 
     @GetMapping("/get")
     // Гет продукт от фронта в базу//

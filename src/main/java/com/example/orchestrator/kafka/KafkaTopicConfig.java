@@ -143,4 +143,9 @@ public class KafkaTopicConfig {
     public NewTopic frontUpdateUser() {
         return new NewTopic("frontUpdateUser", 1, (short) 1);
     }
+
+    @Bean
+    public NewTopic testTopic() {
+        return new NewTopic("testTopic", 1, (short) 1);
+    }
 }
