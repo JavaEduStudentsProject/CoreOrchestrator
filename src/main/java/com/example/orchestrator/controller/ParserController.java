@@ -31,10 +31,11 @@ public class ParserController {
 //    }
 
     // Получаю файл от парсера и отправляю в базу
-    @KafkaListener(topics = "sendParsedString", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "parseFileParser", containerFactory = "kafkaListenerContainerFactory")
     public void listener(String product) throws IOException, InterruptedException {
         log.info("Listener orchestrator: from parser String, parser " + product);
-          messageProducer.sendMessage(product, "save");
+//          messageProducer.sendMessage(product, "save");
+          messageProducer.sendMessage("govno", "testFront");
     }
 
 
