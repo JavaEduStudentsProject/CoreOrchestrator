@@ -77,7 +77,7 @@ public class RecommendationController {
     }
 
     @CrossOrigin
-    @GetMapping("/request_from_react/{productsInBasketArray}")
+    @GetMapping("/basket_request_from_react/{productsInBasketArray}")
     public void initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
         log.info("Get request from front, userId: " + productsInBasketArray);
         messageProducer.sendMessage(productsInBasketArray, "requestForUserBasket");
