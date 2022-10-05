@@ -15,6 +15,8 @@ public class JsonHamsterItem {
     private Integer id;
     private String itemJson;
 
-
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

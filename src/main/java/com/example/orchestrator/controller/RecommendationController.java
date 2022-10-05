@@ -30,12 +30,10 @@ public class RecommendationController {
         log.info("Redirect request to Py module");
     }
 
-//    @KafkaListener(topics = "requestOrdersDataFromOrchestrator", groupId = "ordersDataGroup")
     @KafkaListener(topics = "requestOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
     public void requestOrdersDataFromDB(ConsumerRecord<String, String> record) {
         String data = record.value();
         log.info("Get request from Python module: " + data);
-//        String data = RepositoryImitation.ordersData;
         messageProducer.sendMessage(data, "requestOrdersDataFromDB");
         log.info("Redirect request to Database 'get all orders'");
     }
@@ -53,6 +51,45 @@ public class RecommendationController {
         //todo здесь метод отправки данных в React
         messageProducer.sendMessage(record.value(), "dataForRecommendationComponent");
         log.info("Redirect request to React with recommended products data");
+    }
+
+    @KafkaListener(topics = "requestProductsDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void requestProductsDataFromDB(ConsumerRecord<String, String> record) {
+        String data = record.value();
+        log.info("Get request from Python module: " + data);
+        messageProducer.sendMessage(data, "requestProductsDataFromDB");
+        log.info("Redirect request to Database 'get all products'");
+    }
+
+    @KafkaListener(topics = "sendProductsDataFromDB", containerFactory = "kafkaListenerContainerFactory")
+    public void getProductsDataFromDB(ConsumerRecord<String, String> record) {
+        log.info("Get message from database module: " + record.value());
+        messageProducer.sendMessage(record.value(), "sendProductsDataToRecommendationModule");
+        log.info("Redirect request to Py module with products data from DB");
+    }
+
+    @KafkaListener(topics = "sendRecommendedCategoryProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void getRecommendedCategoryProductsData(ConsumerRecord<String, String> record) {
+        log.info("Get message from Py module: " + record.value());
+        //todo здесь метод отправки данных в React
+        messageProducer.sendMessage(record.value(), "categoryDataForRecommendationComponent");
+        log.info("Redirect request to React with recommended products data (categories)");
+    }
+
+    @CrossOrigin
+    @GetMapping("/request_from_react/{productsInBasketArray}")
+    public void initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
+        log.info("Get request from front, userId: " + productsInBasketArray);
+        messageProducer.sendMessage(productsInBasketArray, "requestForUserBasket");
+        log.info("Redirect basket request to Py module");
+    }
+
+    @KafkaListener(topics = "sendBasketRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void getRecommendedBasketProductsData(ConsumerRecord<String, String> record) {
+        log.info("Get message from Py module: " + record.value());
+        //todo здесь метод отправки данных в React
+        messageProducer.sendMessage(record.value(), "basketDataForRecommendationComponent");
+        log.info("Redirect request to React with recommended products data (basket)");
     }
 
 }

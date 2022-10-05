@@ -78,6 +78,13 @@ public class FrontController {
         log.info("Redirect request to Database 'save order' order = {}", order);
     }
 
+    @KafkaListener(topics = "frontSaveOrders", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void listenerSaveOrders(String orders) {
+        log.info("Get request from Front 'save orders'");
+        messageProducer.sendMessage(orders, "SaveOrders");// направляем запрос в базу
+        log.info("Redirect request to Database 'save orders'", orders);
+    }
+
     @KafkaListener(topics = "frontGetOrder", containerFactory = "kafkaListenerContainerFactory")
     public void listenerGetOrder(String id) {
         log.info("Get request from Front 'get order'");
