@@ -41,7 +41,7 @@ public class FrontController {
     }
     @GetMapping("/test")
     public void Test(){
-        messageProducer.sendMessage("product", "testTopic2");
+        messageProducer.sendMessage("product", "test-topic1");
     }
 
 
