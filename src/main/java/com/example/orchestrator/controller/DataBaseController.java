@@ -23,12 +23,12 @@ public class DataBaseController {
         log.info("Send response to front 'get product' = {}", product);
     }
     //этого метода пока нет в бд
-//    @KafkaListener(topics = "sendALlProductsDB", containerFactory = "kafkaListenerContainerFactory")
-//    public void listenerGetAllProductsResponse(String products) {
-//        log.info("Get response to a request from Database 'get product'");
-//        messageProducer.sendMessage(products, "sendALlProductsToProducts");// направляю продукт на фронт
-//        log.info("Send response to front 'get product' = {}", products);
-//    }
+    @KafkaListener(topics = "sendALlProductsDB", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetAllProductsResponse(String products) {
+        log.info("Get response to a request from Database 'get product'");
+        messageProducer.sendMessage(products, "sendALlProductsToFront");// направляю продукт на фронт
+        log.info("Send response to front 'get product' = {}", products);
+    }
 
     @KafkaListener(topics = "SendOrder", containerFactory = "kafkaListenerContainerFactory")
     public void listenerGetOrderResponse(String product) {

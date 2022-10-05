@@ -45,12 +45,12 @@ public class FrontController {
     }
 
     //этого метода пока нет в бд
-//    @KafkaListener(topics = "frontGetAllProducts", containerFactory = "kafkaListenerContainerFactory")
-//    public void listenerGetAllProducts(String products) {
-//        log.info("Get request from Front 'get all products'");
-//        messageProducer.sendMessage(products, "getAllProductsDB");// направляем запрос в базу
-//        log.info("Redirect request to Database 'get product' with id = {}", products);
-//    }
+    @KafkaListener(topics = "frontGetAllProducts", containerFactory = "kafkaListenerContainerFactory")
+    public void listenerGetAllProducts() {
+        log.info("Get request from Front 'get all products'");
+        messageProducer.sendMessage("дай продукты", "getAllProductsDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'get product' with id = {}", "дай продукты");
+    }
     @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveProduct(String product) {
         log.info("Get request from Front 'save product'");
@@ -100,6 +100,7 @@ public class FrontController {
     }
     @KafkaListener(topics = "frontSaveUser", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveUser(String user) {
+
         log.info("Get request from Front 'save user'");
         messageProducer.sendMessage(user, "saveUserDB");// направляем запрос в базу
         log.info("Redirect request to Database 'save user' user = {}", user);
