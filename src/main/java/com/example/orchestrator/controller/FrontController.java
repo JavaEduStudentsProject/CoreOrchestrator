@@ -34,9 +34,10 @@ public class FrontController {
         messageProducerFile.sendMessage(file, "parseFileParser");
         log.info("Producer orchestrator: file {} to Parser, parseFileParser", file.getName());
     }
-    @KafkaListener(topics = "test-topic", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "test-topic1", containerFactory = "kafkaListenerContainerFactory")
+    //Добавить файл на вход
     public void listenerTestTopic(String test) {
-        log.info("GOVNO {}", test);
+        log.info("Listener Test: string from Front {}", test);
     }
     @GetMapping("/test")
     public void Test(){
