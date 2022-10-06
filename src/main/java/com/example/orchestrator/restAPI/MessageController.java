@@ -6,6 +6,7 @@ import com.example.orchestrator.kafka.MessageProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.requestreply.ReplyingKafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -36,5 +37,8 @@ public class MessageController {
         log.info("Listener orchestrator: from parser String, parser " + products);
         return products;
     }
+
+//    @GetMapping()
+//    public
 
 }
