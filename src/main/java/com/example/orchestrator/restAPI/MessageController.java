@@ -1,44 +1,41 @@
 package com.example.orchestrator.restAPI;
 
 
-import com.example.orchestrator.kafka.MessageListener;
-import com.example.orchestrator.kafka.MessageProducer;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.requestreply.ReplyingKafkaTemplate;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.io.IOException;
-
-@Slf4j
-@CrossOrigin("*")
-@RestController
-@RequestMapping()
+@Component
 public class MessageController {
 
-    private MessageProducer messageProducer;
-    private MessageListener messageListener;
+    @Autowired
+    SimpMessagingTemplate template;
 
-    public MessageController(MessageProducer messageProducer, MessageListener messageListener) {
-        this.messageProducer = messageProducer;
-        this.messageListener = messageListener;
+    @KafkaListener(topics = "test-topic1", groupId = "testGroup")
+    public void listen(String str){
+        System.out.println("sending via kafka listener...");
+        template.convertAndSend("/topics/group", str);
     }
 
-    @GetMapping("")
-    public ResponseEntity<String> getAll() {
-        messageProducer.sendMessage("getAllProducts", "frontGetAllProducts");
-        return ResponseEntity.ok("/temp_props_1.json");
-    }
+//    private MessageProducer messageProducer;
+//    private MessageListener messageListener;
 
-    @PostMapping("")
-    @KafkaListener(topics = "sendAllProductsToFront", containerFactory = "kafkaListenerContainerFactory")
-    public String listener(String products) throws IOException, InterruptedException {
-        log.info("Listener orchestrator: from parser String, parser " + products);
-        return products;
-    }
+//    @Autowired
+//    private ReplyingKafkaTemplate<String, String, String> replyTemplate;
+//
+//    public MessageController(MessageProducer messageProducer, MessageListener messageListener) {
+//        this.messageProducer = messageProducer;
+//        this.messageListener = messageListener;
+//    }
+//
+//    @GetMapping("")
+//    public ResponseEntity<String> getAll() {
+//        messageProducer.sendMessage("getAllProducts", "frontGetAllProducts");
+//
+//        return ResponseEntity.ok("getting all prod");
+//    }
 
-//    @GetMapping()
-//    public
 
 }
