@@ -23,7 +23,6 @@ public class DataBaseController {
     private final String clientId = "myApplicationName";
     private final String groupId = "mygroupId";
     private final String endpoints = "localhost:9092";
-    private final String topic = "SendUser";
     private final String autoOffsetResetPolicy = "earliest";
     private final String securityProtocol = "SASL_SSL";
     private final String securitySaslMechanism = "SCRAM-SHA-256";
@@ -55,29 +54,6 @@ public class DataBaseController {
         messageProducer.sendMessage(product, "sendOrderToFront");
         log.info("Send response to front 'get order' = {}", product);
     }
-    @GetMapping("api/hello")
-    @KafkaListener(topics = "SendUser", containerFactory = "kafkaListenerContainerFactory")
-    public String listenerGetUserResponse(String user) {
-        log.info("Get response to a request from Database 'get user'");
-        messageProducer.sendMessage(user, "sendUserToFront");
-        log.info("Send response to front 'get user' = {}", user);
-        KafkaConsumer<byte[], String> consumer = new KafkaConsumer<>(getProperties());
-        consumer.subscribe(Collections.singletonList(topic));
-        consumer.poll(10000);
-        return user;
-    }
 
-    private Properties getProperties() {
-        Properties props = new Properties();
-//        props.put(ConsumerConfig.CLIENT_ID_CONFIG, clientId);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, endpoints);
-//        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, autoOffsetResetPolicy);
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, keyDeserializer);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, valueDeserializer);
-//        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, securityProtocol);
-//        props.put(SaslConfigs.SASL_MECHANISM, securitySaslMechanism);
-        return props;
-    }
 
 }

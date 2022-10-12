@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
+
 import javax.persistence.Id;
 
 @Getter
@@ -17,4 +19,6 @@ public class JsonHamsterUser {
     @Id
     private Integer id;
     private String userDetails;
+
+
 }

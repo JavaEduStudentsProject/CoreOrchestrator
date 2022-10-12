@@ -124,10 +124,10 @@ public class FrontController {
     }
 
     @KafkaListener(topics = "frontGetUser", containerFactory = "kafkaListenerContainerFactory")
-    public void listenerGetUser(String id) {
+    public void listenerGetUser(String userName) {
         log.info("Get request from Front 'get user'");
-        messageProducer.sendMessage(id, "getUserFromDB");// направляем запрос в базу
-        log.info("Redirect request to Database 'get user' with id = {}", id);
+        messageProducer.sendMessage(userName, "GetUser");// направляем запрос в базу
+        log.info("Redirect request to Database 'get user' with id = {}", userName);
     }
 
     @KafkaListener(topics = "frontDeleteUser", containerFactory = "kafkaListenerContainerFactory")
