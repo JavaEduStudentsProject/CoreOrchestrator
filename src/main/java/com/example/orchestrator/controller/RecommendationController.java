@@ -42,7 +42,7 @@ public class RecommendationController {
     public void getOrdersDataFromDB(ConsumerRecord<String, String> record) {
         log.info("Get message from database module: " + record.value());
         messageProducer.sendMessage(record.value(), "sendOrdersDataToRecommendationModule");
-        log.info("Redirect request to Py module with data from DB");
+        log.info("Redirect request to Py module with orders data from DB");
     }
 
     @KafkaListener(topics = "sendRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
@@ -84,6 +84,14 @@ public class RecommendationController {
         log.info("Redirect basket request to Py module");
     }
 
+    @KafkaListener(topics = "requestProductsAndOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void requestProductsAndOrdersDataFromDB(ConsumerRecord<String, String> record) {
+        String data = record.value();
+        log.info("Get request from Python module: " + data);
+        messageProducer.sendMessage(data, "requestProductsAndOrdersDataFromDB");
+        log.info("Redirect request to Database 'get all products and orders'");
+    }
+
     @KafkaListener(topics = "sendBasketRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
     public void getRecommendedBasketProductsData(ConsumerRecord<String, String> record) {
         log.info("Get message from Py module: " + record.value());
@@ -91,5 +99,4 @@ public class RecommendationController {
         messageProducer.sendMessage(record.value(), "basketDataForRecommendationComponent");
         log.info("Redirect request to React with recommended products data (basket)");
     }
-
 }

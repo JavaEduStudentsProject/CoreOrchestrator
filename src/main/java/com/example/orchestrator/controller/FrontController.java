@@ -58,6 +58,14 @@ public class FrontController {
         log.info("Redirect request to Database 'save product' with id = {}", product);
     }
 
+    @KafkaListener(topics = "frontSaveProducts", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void listenerSaveProducts(String products) {
+        log.info("Get request from Front 'save products'");
+        log.info("Products: " + products);
+        messageProducer.sendMessage(products, "save");
+        log.info("Redirect request to Database 'save products'", products);
+    }
+
     @KafkaListener(topics = "frontDeleteProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerDeleteProduct(String id) {
         log.info("Get request from Front 'delete product'");
@@ -81,6 +89,8 @@ public class FrontController {
     @KafkaListener(topics = "frontSaveOrders", containerFactory = "kafkaListenerContainerFactoryTwo")
     public void listenerSaveOrders(String orders) {
         log.info("Get request from Front 'save orders'");
+        log.info("Orders: " + orders);
+        log.info(orders.getClass().getName());
         messageProducer.sendMessage(orders, "SaveOrders");// направляем запрос в базу
         log.info("Redirect request to Database 'save orders'", orders);
     }

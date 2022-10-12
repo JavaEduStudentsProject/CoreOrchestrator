@@ -25,37 +25,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-//    @Autowired
-//    public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user")
-//                .password("password")
-//                .authorities("ROLE_USER")
-//                .and()
-//                .withUser("admin")
-//                .password("password")
-//                .authorities("ROLE_ADMIN");
-//    }
-//
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//
-//        http
-//                .antMatcher("/**")
-//                .authorizeRequests(a -> a
-//                        .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
-//                        .anyRequest().permitAll())
-//                .formLogin();
-//
-//    }
+    @Autowired
+    public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("user")
+                .password("password")
+                .authorities("ROLE_USER")
+                .and()
+                .withUser("admin")
+                .password("password")
+                .authorities("ROLE_ADMIN");
+    }
+
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception {
+
         http
                 .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/**").permitAll();
+                .antMatcher("/**")
+                .authorizeRequests(a -> a
+                        .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+                        .anyRequest().permitAll())
+                .formLogin();
+
     }
 
     @Bean
@@ -70,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
+    //todo для чего нужен этот класс?
 //    @Configuration
 //    @Order(Ordered.HIGHEST_PRECEDENCE)
 //    public static class AnotherSecurityConfig extends WebSecurityConfigurerAdapter {
