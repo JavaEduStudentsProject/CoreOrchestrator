@@ -16,4 +16,9 @@ public class JsonHamsterOrder {
     @Id
     private Integer id;
     private String orderItems;
+
+    @Override
+    public String toString() {
+        return "" + orderItems;
+    }
 }
