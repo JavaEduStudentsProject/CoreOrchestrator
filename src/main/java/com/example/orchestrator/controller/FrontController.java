@@ -28,7 +28,9 @@ public class FrontController {
     @KafkaListener(topics = "parseFileFront", containerFactory = "kafkaListenerContainerFactory")
     //Добавить файл на вход
     public void listenerParseFile() {
-        File file = new File("CoreOrchestrator/file.csv");
+       // File file = new File("CoreOrchestrator/file.csv");
+        File file = new File("CoreOrchestrator/products.json");
+
         log.info("Listener orchestrator: file from Front {}", file.getName());
         messageProducerFile.sendMessage(file, "parseFileParser");
         log.info("Producer orchestrator: file {} to Parser, parseFileParser", file.getName());
