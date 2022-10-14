@@ -51,7 +51,7 @@ public class FrontController {
     public void listenerGetAllProducts() {
         log.info("Get request from Front 'get all products'");
         messageProducer.sendMessage("дай продукты", "getAllProductsDB");// направляем запрос в базу
-        log.info("Redirect request to Database 'get product' with id = {}", "дай продукты");
+        log.info("Redirect request to Database 'get product'" );
     }
     @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveProduct(String product) {
