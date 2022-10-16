@@ -24,10 +24,11 @@ public class RecommendationController {
     //todo change to kafka method
     @CrossOrigin
     @GetMapping("/request_from_react/{userId}")
-    public void imitationOfKafkaRequestFromReact(@PathVariable("userId") String userId) {
+    public String imitationOfKafkaRequestFromReact(@PathVariable("userId") String userId) {
         log.info("Get request from front, userId: " + userId);
         messageProducer.sendMessage(userId, "requestForUser");
         log.info("Redirect request to Py module");
+        return "Answer from orchestrator";
     }
 
     @KafkaListener(topics = "requestOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
@@ -78,10 +79,11 @@ public class RecommendationController {
 
     @CrossOrigin
     @GetMapping("/basket_request_from_react/{productsInBasketArray}")
-    public void initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
+    public String initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
         log.info("Get request from front, userId: " + productsInBasketArray);
         messageProducer.sendMessage(productsInBasketArray, "requestForUserBasket");
         log.info("Redirect basket request to Py module");
+        return "Answer from orchestrator";
     }
 
     @KafkaListener(topics = "requestProductsAndOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
