@@ -23,13 +23,6 @@ public class ParserController {
         this.messageProducer = messageProducer;
         this.messageProducerFile = messageProducerFile;
     }
-
-//    @KafkaListener(topics = "test-topic", containerFactory = "kafkaListenerContainerFactory")
-//    public void listenerReact(String str) throws IOException, InterruptedException {
-//        log.info("Listener orchestrator: from React,  str " + str);
-////          messageProducer.sendMessage(product, "parser");
-//    }
-
     // Получаю файл от парсера и отправляю в базу
     @KafkaListener(topics = "sendParsedString", containerFactory = "kafkaListenerContainerFactory")
     public void listener(String product) throws IOException, InterruptedException {

@@ -34,13 +34,12 @@ public class MessageListener {
         consumer.subscribe(Collections.singleton(topicProducts));
 
         ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
-        System.out.println(productsRecords);
+        log.info("Products records: {}", productsRecords);
         for (ConsumerRecord<String,String> record : productsRecords)
         {
             products = record.value();
-            System.out.println(products);
+            log.info("Products: {}", products);
         }
-
         consumer.close();
         return products;
     }

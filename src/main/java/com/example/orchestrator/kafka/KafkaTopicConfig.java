@@ -11,7 +11,6 @@ import org.springframework.kafka.core.KafkaAdmin;
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j
 @Configuration
 public class KafkaTopicConfig {
 
@@ -27,7 +26,6 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic parseFileFront() {
-        log.info("Create orchestrator topic parseFileFront");
         return new NewTopic("parseFileFront", 1, (short) 1);
     }
 
@@ -44,66 +42,51 @@ public class KafkaTopicConfig {
 //    }
     @Bean
     public NewTopic frontGetProduct() {
-        log.info("Create orchestrator topic frontGetProduct");
         return new NewTopic("frontGetProduct", 1, (short) 1);
     }
 
     @Bean
     public NewTopic frontGetAllProducts() {
-        log.info("Create orchestrator topic frontGetAllProducts");
         return new NewTopic("frontGetAllProducts", 1, (short) 1);
     }
 
     @Bean
     public NewTopic sendALlProductsDB() {
-        log.info("Create orchestrator topic sendALlProductsDB");
         return new NewTopic("sendALlProductsDB", 1, (short) 1);
     }
 
     @Bean
     public NewTopic frontSaveProduct() {
-        log.info("Create orchestrator topic saveProduct");
         return new NewTopic("saveProduct", 1, (short) 1);
     }
 
     @Bean
     public NewTopic save() {
-        log.info("Create orchestrator topic save");
         return new NewTopic("save", 1, (short) 1);
     }
 
     @Bean
     public NewTopic frontDeleteProduct() {
-        log.info("Create orchestrator topic frontDeleteProduct");
         return new NewTopic("frontDeleteProduct", 1, (short) 1);
     }
 
     @Bean
     public NewTopic frontUpdateProduct() {
-        log.info("Create orchestrator topic frontUpdateProduct");
         return new NewTopic("frontUpdateProduct", 1, (short) 1);
     }
 
     @Bean
     public NewTopic sendProductFromDB() {
-        log.info("Create orchestrator topic sendProductFromDB");
         return new NewTopic("sendProductFromDB", 1, (short) 1);
     }
-//    @Bean
-//    public NewTopic sendProductToFront() {
-//        log.info("Create orchestrator topic sendProductToFront");
-//        return new NewTopic("sendProductToFront", 1, (short) 1);
-//    }
 
     @Bean
     public NewTopic sendAllProduct() {
-        log.info("Create orchestrator topic sendAllProduct");
         return new NewTopic("sendAllProduct", 1, (short) 1);
     }
 
     @Bean
     public NewTopic sendParsedString() {
-        log.info("Create orchestrator topic parser");
         return new NewTopic("sendParsedString", 1, (short) 1);
     }
 

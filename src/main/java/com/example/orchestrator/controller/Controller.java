@@ -21,7 +21,7 @@ public class Controller {
     @GetMapping("/products")
     public String getAllProductsFromDB (){
         String products = ml.listenerGetAllProductsResponse();
-        System.out.println(products);
+        log.info(products);
         return products;
     }
 }

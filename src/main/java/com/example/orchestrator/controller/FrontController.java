@@ -28,9 +28,7 @@ public class FrontController {
     @KafkaListener(topics = "parseFileFront", containerFactory = "kafkaListenerContainerFactory")
     //Добавить файл на вход
     public void listenerParseFile() {
-       // File file = new File("CoreOrchestrator/file.csv");
         File file = new File("CoreOrchestrator/products.json");
-
         log.info("Listener orchestrator: file from Front {}", file.getName());
         messageProducerFile.sendMessage(file, "parseFileParser");
         log.info("Producer orchestrator: file {} to Parser, parseFileParser", file.getName());
@@ -47,12 +45,12 @@ public class FrontController {
     }
 
     //этого метода пока нет в бд
-    @KafkaListener(topics = "frontGetAllProducts", containerFactory = "kafkaListenerContainerFactory")
-    public void listenerGetAllProducts() {
-        log.info("Get request from Front 'get all products'");
-        messageProducer.sendMessage("дай продукты", "getAllProductsDB");// направляем запрос в базу
-        log.info("Redirect request to Database 'get product'" );
-    }
+//    @KafkaListener(topics = "frontGetAllProducts", containerFactory = "kafkaListenerContainerFactory")
+//    public void listenerGetAllProducts() {
+//        log.info("Get request from Front 'get all products'");
+//        messageProducer.sendMessage("дай продукты", "getAllProductsDB");// направляем запрос в базу
+//        log.info("Redirect request to Database 'get product'" );
+//    }
     @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveProduct(String product) {
         log.info("Get request from Front 'save product'");
