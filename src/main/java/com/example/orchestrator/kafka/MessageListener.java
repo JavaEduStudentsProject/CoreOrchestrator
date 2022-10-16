@@ -27,20 +27,17 @@ public class MessageListener {
     }
 
     public String listenerGetAllProductsResponse() {
-        log.info("Get response to a request from Database 'get products'");
-        messageProducer.sendMessage("get all products", "frontGetAllProducts");
+        log.info("Sent request to Database - get products");
+        messageProducer.sendMessage("get all products", "getAllProductsDB");
         String products = null;
         Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
         consumer.subscribe(Collections.singleton(topicProducts));
 
         ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
-        System.out.println(productsRecords);
         for (ConsumerRecord<String,String> record : productsRecords)
         {
             products = record.value();
-            System.out.println(products);
         }
-
         consumer.close();
         return products;
     }

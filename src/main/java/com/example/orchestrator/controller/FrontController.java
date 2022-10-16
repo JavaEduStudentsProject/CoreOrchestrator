@@ -1,10 +1,13 @@
 package com.example.orchestrator.controller;
 
+import com.example.orchestrator.kafka.MessageListener;
 import com.example.orchestrator.kafka.MessageProducer;
 import com.example.orchestrator.kafka.MessageProducerFile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +17,13 @@ import java.io.File;
 @Slf4j
 @RestController
 @RequestMapping("/api")
+@Service
+@CrossOrigin
 public class FrontController {
     MessageProducer messageProducer;
     MessageProducerFile messageProducerFile;
+    @Autowired
+    MessageListener ml;
 
     @Autowired
     public FrontController(MessageProducer messageProducer, MessageProducerFile messageProducerFile) {
@@ -46,12 +53,11 @@ public class FrontController {
         log.info("Redirect request to Database 'get product' with id = {}", id);
     }
 
-    //этого метода пока нет в бд
-    @KafkaListener(topics = "frontGetAllProducts", containerFactory = "kafkaListenerContainerFactory")
-    public void listenerGetAllProducts() {
-        log.info("Get request from Front 'get all products'");
-        messageProducer.sendMessage("дай продукты", "getAllProductsDB");// направляем запрос в базу
-        log.info("Redirect request to Database 'get product'" );
+    @GetMapping("/products")
+    public String getAllProductsFromDB (){
+        String products = ml.listenerGetAllProductsResponse();
+        log.info("Products from Database: {}", products);
+        return products;
     }
     @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveProduct(String product) {
