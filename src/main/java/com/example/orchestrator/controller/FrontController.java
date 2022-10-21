@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 
@@ -59,6 +56,14 @@ public class FrontController {
         log.info("Products from Database: {}", products);
         return products;
     }
+
+    @PostMapping("/createOrder")
+    public void saveOrderInDB (@RequestBody String order){
+        log.info("Get request from Front 'save order'");
+        messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
+        log.info("Redirect request to Database 'save order' order = {}", order);
+    }
+
     @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveProduct(String product) {
         log.info("Get request from Front 'save product'");
@@ -87,12 +92,12 @@ public class FrontController {
         messageProducer.sendMessage(id, "updateProductDB");// направляем запрос в базу
         log.info("Redirect request to Database 'update product' with id = {}", id);
     }
-    @KafkaListener(topics = "frontSaveOrder", containerFactory = "kafkaListenerContainerFactory")
-    public void listenerSaveOrder(String order) {
-        log.info("Get request from Front 'save order'");
-        messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
-        log.info("Redirect request to Database 'save order' order = {}", order);
-    }
+//    @KafkaListener(topics = "frontSaveOrder", containerFactory = "kafkaListenerContainerFactory")
+//    public void listenerSaveOrder(String order) {
+//        log.info("Get request from Front 'save order'");
+//        messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
+//        log.info("Redirect request to Database 'save order' order = {}", order);
+//    }
 
     @KafkaListener(topics = "frontSaveOrders", containerFactory = "kafkaListenerContainerFactoryTwo")
     public void listenerSaveOrders(String orders) {
