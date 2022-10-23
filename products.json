@@ -5,7 +5,7 @@
     "description": "An apple mobile which is nothing like apple",
     "category": "electronics",
     "price": 549,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 12.96,
       "stock": 94,
       "rating": 4.69
@@ -29,7 +29,7 @@
     "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
     "category": "electronics",
     "price": 899,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.94,
       "rating": 4.44,
       "stock": 34
@@ -52,7 +52,7 @@
     "category": "electronics",
     "price": 1249,
     "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.46,
       "rating": 4.09,
       "stock": 36
@@ -72,7 +72,7 @@
     "description": "OPPO F19 is officially announced on April 2021.",
     "category": "electronics",
     "price": 280,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.91,
       "rating": 4.3,
       "stock": 123
@@ -96,7 +96,7 @@
     "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
     "category": "electronics",
     "price": 499,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.58,
       "rating": 4.09,
       "stock": 32
@@ -118,7 +118,7 @@
     "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
     "category": "electronics",
     "price": 1749,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.02,
       "rating": 4.57,
       "stock": 83
@@ -141,7 +141,7 @@
     "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
     "category": "electronics",
     "price": 1499,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 4.15,
       "rating": 4.25,
       "stock": 50
@@ -164,7 +164,7 @@
     "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
     "category": "electronics",
     "price": 1499,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.23,
       "rating": 4.43,
       "stock": 68
@@ -188,7 +188,7 @@
     "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
     "category": "electronics",
     "price": 1099,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.83,
       "rating": 4.54,
       "stock": 96
@@ -212,7 +212,7 @@
     "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
     "category": "electronics",
     "price": 1099,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 6.18,
       "rating": 4.43,
       "stock": 89
@@ -235,7 +235,7 @@
     "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
     "category": "beauty and health",
     "price": 13,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.4,
       "rating": 4.26,
       "stock": 65
@@ -258,7 +258,7 @@
     "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     "category": "beauty and health",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.66,
       "rating": 4,
       "stock": 52
@@ -282,7 +282,7 @@
     "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
     "category": "beauty and health",
     "price": 13,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.14,
       "rating": 4.59,
       "stock": 61
@@ -306,7 +306,7 @@
     "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
     "category": "beauty and health",
     "price": 120,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.6,
       "rating": 4.21,
       "stock": 114
@@ -329,7 +329,7 @@
     "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
     "category": "beauty and health",
     "price": 30,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.99,
       "rating": 4.7,
       "stock": 105
@@ -353,7 +353,7 @@
     "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
     "category": "beauty and health",
     "price": 19,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.31,
       "rating": 4.83,
       "stock": 110
@@ -377,7 +377,7 @@
     "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
     "category": "beauty and health",
     "price": 12,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 4.09,
       "rating": 4.52,
       "stock": 78
@@ -400,7 +400,7 @@
     "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
     "category": "beauty and health",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.1,
       "rating": 4.56,
       "stock": 88
@@ -424,7 +424,7 @@
     "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
     "category": "beauty and health",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.68,
       "rating": 4.42,
       "stock": 54
@@ -447,7 +447,7 @@
     "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
     "category": "beauty and health",
     "price": 70,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.99,
       "rating": 4.06,
       "stock": 140
@@ -471,7 +471,7 @@
     "description": "Fine quality Branded Product Keep in a cool and dry place",
     "category": "food",
     "price": 20,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 4.81,
       "rating": 4.44,
       "stock": 133
@@ -493,7 +493,7 @@
     "description": "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
     "category": "food",
     "price": 14,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.58,
       "rating": 4.57,
       "stock": 146
@@ -515,7 +515,7 @@
     "description": "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
     "category": "food",
     "price": 14,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.04,
       "rating": 4.85,
       "stock": 26
@@ -539,7 +539,7 @@
     "description": "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
     "category": "food",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.8,
       "rating": 4.94,
       "stock": 113
@@ -563,7 +563,7 @@
     "description": "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
     "category": "food",
     "price": 70,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.58,
       "rating": 4.87,
       "stock": 47
@@ -587,7 +587,7 @@
     "description": "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
     "category": "House and garden",
     "price": 41,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.86,
       "rating": 4.08,
       "stock": 131
@@ -612,7 +612,7 @@
     "description": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
     "category": "House and garden",
     "price": 51,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.58,
       "rating": 4.41,
       "stock": 17
@@ -636,7 +636,7 @@
     "description": "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
     "category": "House and garden",
     "price": 20,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.49,
       "rating": 4.82,
       "stock": 54
@@ -660,7 +660,7 @@
     "description": "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
     "category": "House and garden",
     "price": 60,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.34,
       "rating": 4.44,
       "stock": 7
@@ -684,7 +684,7 @@
     "description": "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
     "category": "House and garden",
     "price": 30,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 2.92,
       "rating": 4.92,
       "stock": 54
@@ -707,7 +707,7 @@
     "description": "Mornadi Velvet Bed Base with Headboard Slats Support Classic Style Bedroom Furniture Bed Set",
     "category": "House and garden",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17,
       "rating": 4.16,
       "stock": 140
@@ -731,7 +731,7 @@
     "description": "Ratttan Outdoor furniture Set Waterproof  Rattan Sofa for Coffe Cafe",
     "category": "House and garden",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.59,
       "rating": 4.74,
       "stock": 30
@@ -754,7 +754,7 @@
     "description": "3 Tier Corner Shelves | 3 PCs Wall Mount Kitchen Shelf | Floating Bedroom Shelf",
     "category": "House and garden",
     "price": 700,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17,
       "rating": 4.31,
       "stock": 106
@@ -778,7 +778,7 @@
     "description": "Very good quality plastic table for multi purpose now in reasonable price",
     "category": "House and garden",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 4,
       "rating": 4.01,
       "stock": 136
@@ -802,7 +802,7 @@
     "description": "Material: Stainless Steel and Fabric  Item Size: 110 cm x 45 cm x 175 cm Package Contents: 1 Storage Wardrobe",
     "category": "House and garden",
     "price": 41,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 7.98,
       "rating": 4.06,
       "stock": 68
@@ -826,7 +826,7 @@
     "description": "Cotton Solid Color Professional Wear Sleeve Shirt Womens Work Blouses Wholesale Clothing Casual Plain Custom Top OEM Customized",
     "category": " clothing",
     "price": 90,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.89,
       "rating": 4.26,
       "stock": 39
@@ -850,7 +850,7 @@
     "description": "PACK OF 3 CAMISOLES ,VERY COMFORTABLE SOFT COTTON STUFF, COMFORTABLE IN ALL FOUR SEASONS",
     "category": " clothing",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 12.05,
       "rating": 4.52,
       "stock": 107
@@ -874,7 +874,7 @@
     "description": "sublimation plain kids tank tops wholesale",
     "category": " clothing",
     "price": 100,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.12,
       "rating": 4.8,
       "stock": 20
@@ -897,7 +897,7 @@
     "description": "2021 Custom Winter Fall Zebra Knit Crop Top Women Sweaters Wool Mohair Cos Customize Crew Neck Women' S Crop Top Sweater",
     "category": " clothing",
     "price": 600,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.2,
       "rating": 4.55,
       "stock": 55
@@ -921,7 +921,7 @@
     "description": "women winter clothes thick fleece hoodie top with sweat pantjogger women sweatsuit set joggers pants two piece pants set",
     "category": " clothing",
     "price": 57,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.39,
       "rating": 4.91,
       "stock": 84
@@ -942,7 +942,7 @@
     "description": "NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.",
     "category": " clothing",
     "price": 55,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.05,
       "rating": 4.65,
       "stock": 21
@@ -966,7 +966,7 @@
     "description": "FABRIC: LILEIN CHEST: 21 LENGHT: 37 TROUSER: (38) :ARABIC LILEIN",
     "category": " clothing",
     "price": 80,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.37,
       "rating": 4.05,
       "stock": 148
@@ -990,7 +990,7 @@
     "description": "Ghazi fabric long frock gold printed ready to wear stitched collection (G992)",
     "category": " clothing",
     "price": 600,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.55,
       "rating": 4.31,
       "stock": 150
@@ -1014,7 +1014,7 @@
     "description": "This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi-casual wears.",
     "category": " clothing",
     "price": 79,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.88,
       "rating": 4.03,
       "stock": 2
@@ -1038,7 +1038,7 @@
     "description": "Ready to wear, Unique design according to modern standard fashion, Best fitting ,Imported stuff",
     "category": " clothing",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 5.07,
       "rating": 4.67,
       "stock": 96
@@ -1062,7 +1062,7 @@
     "description": "Close: Lace, Style with bottom: Increased inside, Sole Material: Rubber",
     "category": " clothing",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.96,
       "rating": 4.14,
       "stock": 72
@@ -1086,7 +1086,7 @@
     "description": "Synthetic Leather Casual Sneaker shoes for Women/girls Sneakers For Women",
     "category": " clothing",
     "price": 120,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.37,
       "rating": 4.19,
       "stock": 50
@@ -1109,7 +1109,7 @@
     "description": "Features: Flip-flops, Mid Heel, Comfortable, Striped Heel, Antiskid, Striped",
     "category": " clothing",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.83,
       "rating": 4.02,
       "stock": 25
@@ -1133,7 +1133,7 @@
     "description": "Womens Chappals & Shoe Ladies Metallic Tong Thong Sandal Flat Summer 2020 Maasai Sandals",
     "category": " clothing",
     "price": 23,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 2.62,
       "rating": 4.72,
       "stock": 107
@@ -1156,7 +1156,7 @@
     "description": "2020 New Arrivals Genuine Leather Fashion Trend Platform Summer Women Shoes",
     "category": " clothing",
     "price": 36,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.87,
       "rating": 4.33,
       "stock": 46
@@ -1178,7 +1178,7 @@
     "description": "Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands",
     "category": " clothing",
     "price": 23,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 12.76,
       "rating": 4.26,
       "stock": 132
@@ -1201,7 +1201,7 @@
     "description": "quality and professional print - It doesn't just look high quality, it is high quality.",
     "category": " clothing",
     "price": 10,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 14.72,
       "rating": 4.52,
       "stock": 128
@@ -1225,7 +1225,7 @@
     "description": "Brand: vintage Apparel ,Export quality",
     "category": " clothing",
     "price": 35,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 7.54,
       "rating": 4.89,
       "stock": 6
@@ -1249,7 +1249,7 @@
     "description": "Product Description Features: 100% Ultra soft Polyester Jersey. Vibrant & colorful printing on front. Feels soft as cotton without ever cracking",
     "category": " clothing",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.44,
       "rating": 4.62,
       "stock": 136
@@ -1273,7 +1273,7 @@
     "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
     "category": " clothing",
     "price": 66,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.97,
       "rating": 4.9,
       "stock": 122
@@ -1297,7 +1297,7 @@
     "description": "Gender: Men , Colors: Same as DisplayedCondition: 100% Brand New",
     "category": " clothing",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 12.57,
       "rating": 4.38,
       "stock": 6
@@ -1322,7 +1322,7 @@
     "description": "Men Shoes - Loafers for men - Rubber Shoes - Nylon Shoes - Shoes for men - Moccassion - Pure Nylon (Rubber) Expot Quality.",
     "category": " clothing",
     "price": 47,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.91,
       "rating": 4.91,
       "stock": 20
@@ -1346,7 +1346,7 @@
     "description": "Pattern Type: Solid, Material: PU, Toe Shape: Pointed Toe ,Outsole Material: Rubber",
     "category": " clothing",
     "price": 57,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 12,
       "rating": 4.41,
       "stock": 68
@@ -1370,7 +1370,7 @@
     "description": "Comfortable stretch cloth, lightweight body; rubber sole, anti-skid wear;",
     "category": " clothing",
     "price": 20,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.71,
       "rating": 4.33,
       "stock": 137
@@ -1394,7 +1394,7 @@
     "description": "High Quality ,Stylish design ,Comfortable wear ,FAshion ,Durable",
     "category": " clothing",
     "price": 58,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 7.55,
       "rating": 4.55,
       "stock": 129
@@ -1417,7 +1417,7 @@
     "description": "Style:Sport ,Clasp:Buckles ,Water Resistance Depth:3Bar",
     "category": " clothing",
     "price": 120,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 7.14,
       "rating": 4.63,
       "stock": 91
@@ -1439,7 +1439,7 @@
     "description": "Watch Crown With Environmental IPS Bronze Electroplating; Display system of 12 hours",
     "category": " clothing",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 3.15,
       "rating": 4.05,
       "stock": 95
@@ -1460,7 +1460,7 @@
     "description": "Men Silver Chain Royal Blue Premium Watch Latest Analog Watch",
     "category": " clothing",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 2.56,
       "rating": 4.89,
       "stock": 142
@@ -1483,7 +1483,7 @@
     "description": "Leather Strap Skeleton Watch for Men - Stylish and Latest Design",
     "category": " clothing",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.2,
       "rating": 4.98,
       "stock": 61
@@ -1506,7 +1506,7 @@
     "description": "Stylish Watch For Man (Luxury) Classy Men's Stainless Steel Wrist Watch - Box Packed",
     "category": " clothing",
     "price": 47,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.79,
       "rating": 4.79,
       "stock": 94
@@ -1530,7 +1530,7 @@
     "description": "Elegant design, Stylish ,Unique & Trendy,Comfortable wear",
     "category": " decorations",
     "price": 35,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 3.23,
       "rating": 4.79,
       "stock": 24
@@ -1554,7 +1554,7 @@
     "description": "Buy this awesome  The product is originally manufactured by the company and it's a top selling product with a very reasonable",
     "category": " decorations",
     "price": 60,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16.69,
       "rating": 4.03,
       "stock": 46
@@ -1578,7 +1578,7 @@
     "description": "Stylish Luxury Digital Watch For Girls / Women - Led Smart Ladies Watches For Girls",
     "category": " decorations",
     "price": 57,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 9.03,
       "rating": 4.55,
       "stock": 77
@@ -1599,7 +1599,7 @@
     "description": "Product details of Golden Watch Pearls Bracelet Watch For Girls - Golden Chain Ladies Bracelate Watch for Women",
     "category": " decorations",
     "price": 47,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.55,
       "rating": 4.77,
       "stock": 89
@@ -1623,7 +1623,7 @@
     "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
     "category": " decorations",
     "price": 35,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.98,
       "rating": 4.08,
       "stock": 111
@@ -1645,7 +1645,7 @@
     "description": "LouisWill Women Shoulder Bags Long Clutches Cross Body Bags Phone Bags PU Leather Hand Bags Large Capacity Card Holders Zipper Coin Purses Fashion Crossbody Bags for Girls Ladies",
     "category": " decorations",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 14.65,
       "rating": 4.71,
       "stock": 17
@@ -1668,7 +1668,7 @@
     "description": "This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.",
     "category": " decorations",
     "price": 23,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.5,
       "rating": 4.91,
       "stock": 27
@@ -1692,7 +1692,7 @@
     "description": "This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.",
     "category": " decorations",
     "price": 44,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.39,
       "rating": 4.18,
       "stock": 101
@@ -1715,7 +1715,7 @@
     "description": "It features an attractive design that makes it a must have accessory in your collection. We sell different kind of bags for boys, kids, women, girls and also for unisex.",
     "category": " decorations",
     "price": 57,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.19,
       "rating": 4.01,
       "stock": 43
@@ -1739,7 +1739,7 @@
     "description": "Seven Pocket Women Bag Handbags Lady Shoulder Crossbody Bag Female Purse Seven Pocket Bag",
     "category": " decorations",
     "price": 68,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 14.87,
       "rating": 4.93,
       "stock": 13
@@ -1762,7 +1762,7 @@
     "description": "Jewelry Type:RingsCertificate Type:NonePlating:Silver PlatedShapeattern:noneStyle:CLASSICReligious",
     "category": " decorations",
     "price": 70,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.57,
       "rating": 4.61,
       "stock": 51
@@ -1784,7 +1784,7 @@
     "description": "Brand: The Greetings Flower Colour: RedRing Colour: GoldenSize: Adjustable",
     "category": " decorations",
     "price": 100,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 3.22,
       "rating": 4.21,
       "stock": 149
@@ -1807,7 +1807,7 @@
     "description": "Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women",
     "category": " decorations",
     "price": 30,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.02,
       "rating": 4.69,
       "stock": 9
@@ -1827,7 +1827,7 @@
     "description": "Elegant Female Pearl Earrings Set Zircon Pearl Earings Women Party Accessories 9 Pairs/Set",
     "category": " decorations",
     "price": 30,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 12.8,
       "rating": 4.74,
       "stock": 16
@@ -1847,7 +1847,7 @@
     "description": "Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)",
     "category": " decorations",
     "price": 45,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.75,
       "rating": 4.59,
       "stock": 9
@@ -1871,7 +1871,7 @@
     "description": "A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings",
     "category": " decorations",
     "price": 19,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.1,
       "rating": 4.94,
       "stock": 78
@@ -1895,7 +1895,7 @@
     "description": "Orignal Metal Kabir Singh design 2020 Sunglasses Men Brand Designer Sun Glasses Kabir Singh Square Sunglass",
     "category": " decorations",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 15.6,
       "rating": 4.62,
       "stock": 78
@@ -1919,7 +1919,7 @@
     "description": "Wiley X Night Vision Yellow Glasses for Riders - Night Vision Anti Fog Driving Glasses - Free Night Glass Cover - Shield Eyes From Dust and Virus- For Night Sport Matches",
     "category": " decorations",
     "price": 30,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 6.33,
       "rating": 4.97,
       "stock": 115
@@ -1943,7 +1943,7 @@
     "description": "Fashion Oversized Square Sunglasses Retro Gradient Big Frame Sunglasses For Women One Piece Gafas Shade Mirror Clear Lens 17059",
     "category": " decorations",
     "price": 28,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.89,
       "rating": 4.64,
       "stock": 64
@@ -1965,7 +1965,7 @@
     "description": "LouisWill Men Sunglasses Polarized Sunglasses UV400 Sunglasses Day Night Dual Use Safety Driving Night Vision Eyewear AL-MG Frame Sun Glasses with Free Box for Drivers",
     "category": " decorations",
     "price": 50,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.27,
       "rating": 4.98,
       "stock": 92
@@ -1987,7 +1987,7 @@
     "description": "Bluetooth Aux Bluetooth Car Aux Car Bluetooth Transmitter Aux Audio Receiver Handfree Car Bluetooth Music Receiver Universal 3.5mm Streaming A2DP Wireless Auto AUX Audio Adapter With Mic For Phone MP3",
     "category": " auto",
     "price": 25,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.56,
       "rating": 4.57,
       "stock": 22
@@ -2011,7 +2011,7 @@
     "description": "Both Heat and Cool Purpose, Temperature control range; -50 to +110, Temperature measurement accuracy; 0.1, Control accuracy; 0.1",
     "category": " auto",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.3,
       "rating": 4.54,
       "stock": 37
@@ -2035,7 +2035,7 @@
     "description": "TC Reusable Silicone Magic Washing Gloves with Scrubber, Cleaning Brush Scrubber Gloves Heat Resistant Pair for Cleaning of Kitchen, Dishes, Vegetables and Fruits, Bathroom, Car Wash, Pet Care and Multipurpose",
     "category": " auto",
     "price": 29,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 3.19,
       "rating": 4.98,
       "stock": 42
@@ -2059,7 +2059,7 @@
     "description": "best Quality CHarger , Highly Recommended to all best Quality CHarger , Highly Recommended to all",
     "category": " auto",
     "price": 40,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.53,
       "rating": 4.2,
       "stock": 79
@@ -2083,7 +2083,7 @@
     "description": "Universal fitment and easy to install no special wires, can be easily installed and removed. Fits most standard tyre air stem valves of road, mountain bicycles, motocycles and cars.Bright led will turn on w",
     "category": " auto",
     "price": 35,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 11.08,
       "rating": 4.1,
       "stock": 63
@@ -2107,7 +2107,7 @@
     "description": "Engine Type:Wet sump, Single Cylinder, Four Stroke, Two Valves, Air Cooled with SOHC (Single Over Head Cam) Chain Drive Bore & Stroke:47.0 x 49.5 MM",
     "category": " auto",
     "price": 569,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 13.63,
       "rating": 4.04,
       "stock": 115
@@ -2131,7 +2131,7 @@
     "description": "HOT SALE IN EUROPE electric racing motorcycle electric motorcycle for sale adult electric motorcycles",
     "category": " auto",
     "price": 920,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 14.4,
       "rating": 4.19,
       "stock": 22
@@ -2154,7 +2154,7 @@
     "description": "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
     "category": " auto",
     "price": 1050,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 3.34,
       "rating": 4.84,
       "stock": 127
@@ -2178,7 +2178,7 @@
     "description": "new arrivals Fashion motocross goggles motorcycle motocross racing motorcycle",
     "category": " auto",
     "price": 900,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 3.85,
       "rating": 4.06,
       "stock": 109
@@ -2201,7 +2201,7 @@
     "description": "Wholesale cargo lashing Belt Tie Down end Ratchet strap customized strap 25mm motorcycle 1500kgs with rubber handle",
     "category": " auto",
     "price": 930,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 17.67,
       "rating": 4.21,
       "stock": 144
@@ -2225,7 +2225,7 @@
     "description": "Wholesale slim hanging decorative kid room lighting ceiling kitchen chandeliers pendant light modern",
     "category": " House and garden ",
     "price": 30,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 14.89,
       "rating": 4.83,
       "stock": 96
@@ -2249,7 +2249,7 @@
     "description": "Metal Ceramic Flower Chandelier Home Lighting American Vintage Hanging Lighting Pendant Lamp",
     "category": " House and garden ",
     "price": 35,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 10.94,
       "rating": 4.93,
       "stock": 146
@@ -2273,7 +2273,7 @@
     "description": "3 lights lndenpant kitchen islang dining room pendant rice paper chandelier contemporary led pendant light modern chandelier",
     "category": " House and garden ",
     "price": 34,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 5.92,
       "rating": 4.99,
       "stock": 44
@@ -2297,7 +2297,7 @@
     "description": "American Vintage Wood Pendant Light Farmhouse Antique Hanging Lamp Lampara Colgante",
     "category": " House and garden ",
     "price": 46,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 8.84,
       "rating": 4.32,
       "stock": 138
@@ -2321,7 +2321,7 @@
     "description": "Crystal chandelier maria theresa for 12 light",
     "category": " House and garden ",
     "price": 47,
-    "non-filter_features": {
+    "non_filter_features": {
       "discountPercentage": 16,
       "rating": 4.74,
       "stock": 133
