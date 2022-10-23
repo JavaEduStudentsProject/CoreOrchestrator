@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
@@ -21,6 +22,9 @@ public class MessageProducer {
         this.kafkaTemplate = kafkaTemplate;
     }
 
+    @Autowired
+    SimpMessagingTemplate template;
+
     public void sendMessage(String product, String topicName) {
         ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topicName,product);
 
@@ -35,5 +39,10 @@ public class MessageProducer {
                 log.info("Message sent successfully with offset = {}", stringDataSendResult.getRecordMetadata().offset());
             }
         });
+    }
+
+    public void sendMessageToWebSocket(String topic, String message) {
+        log.info("Sending message to websocket");
+        template.convertAndSend(topic, message);
     }
 }
