@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -28,11 +30,12 @@ public class RecommendationController {
     //todo change to kafka method
     @CrossOrigin
     @GetMapping("/request_from_react/{userId}")
-    public String imitationOfKafkaRequestFromReact(@PathVariable("userId") String userId) {
+    public List imitationOfKafkaRequestFromReact(@PathVariable("userId") String userId) {
         log.info("Get request from front, userId: " + userId);
         messageProducer.sendMessage(userId, "requestForUser");
+        messageProducer.sendMessage(userId, "syncRequestForUser");
         log.info("Redirect request to Py module");
-        return "Answer from orchestrator";
+        return Arrays.asList("{'Orchestrator answer': 'got your request'}");
     }
 
     @KafkaListener(topics = "requestOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
@@ -67,11 +70,12 @@ public class RecommendationController {
 
     @CrossOrigin
     @GetMapping("/basket_request_from_react/{productsInBasketArray}")
-    public String initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
+    public List initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
         log.info("Get request from front, userId: " + productsInBasketArray);
         messageProducer.sendMessage(productsInBasketArray, "requestForUserBasket");
+        messageProducer.sendMessage(productsInBasketArray, "syncRequestForUserBasket");
         log.info("Redirect basket request to Py module");
-        return "Answer from orchestrator";
+        return Arrays.asList("{'Orchestrator answer': 'got your request'}");
     }
 
     @KafkaListener(topics = "requestProductsAndOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
