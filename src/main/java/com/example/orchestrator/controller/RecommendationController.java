@@ -5,10 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -24,11 +30,12 @@ public class RecommendationController {
     //todo change to kafka method
     @CrossOrigin
     @GetMapping("/request_from_react/{userId}")
-    public String imitationOfKafkaRequestFromReact(@PathVariable("userId") String userId) {
+    public List imitationOfKafkaRequestFromReact(@PathVariable("userId") String userId) {
         log.info("Get request from front, userId: " + userId);
         messageProducer.sendMessage(userId, "requestForUser");
+        messageProducer.sendMessage(userId, "syncRequestForUser");
         log.info("Redirect request to Py module");
-        return "Answer from orchestrator";
+        return Arrays.asList("{'Orchestrator answer': 'got your request'}");
     }
 
     @KafkaListener(topics = "requestOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
@@ -46,14 +53,6 @@ public class RecommendationController {
         log.info("Redirect request to Py module with orders data from DB");
     }
 
-    @KafkaListener(topics = "sendRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
-    public void getRecommendedProductsData(ConsumerRecord<String, String> record) {
-        log.info("Get message from Py module: " + record.value());
-        //todo здесь метод отправки данных в React
-        messageProducer.sendMessage(record.value(), "dataForRecommendationComponent");
-        log.info("Redirect request to React with recommended products data");
-    }
-
     @KafkaListener(topics = "requestProductsDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
     public void requestProductsDataFromDB(ConsumerRecord<String, String> record) {
         String data = record.value();
@@ -69,21 +68,14 @@ public class RecommendationController {
         log.info("Redirect request to Py module with products data from DB");
     }
 
-    @KafkaListener(topics = "sendRecommendedCategoryProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
-    public void getRecommendedCategoryProductsData(ConsumerRecord<String, String> record) {
-        log.info("Get message from Py module: " + record.value());
-        //todo здесь метод отправки данных в React
-        messageProducer.sendMessage(record.value(), "categoryDataForRecommendationComponent");
-        log.info("Redirect request to React with recommended products data (categories)");
-    }
-
     @CrossOrigin
     @GetMapping("/basket_request_from_react/{productsInBasketArray}")
-    public String initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
+    public List initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
         log.info("Get request from front, userId: " + productsInBasketArray);
         messageProducer.sendMessage(productsInBasketArray, "requestForUserBasket");
+        messageProducer.sendMessage(productsInBasketArray, "syncRequestForUserBasket");
         log.info("Redirect basket request to Py module");
-        return "Answer from orchestrator";
+        return Arrays.asList("{'Orchestrator answer': 'got your request'}");
     }
 
     @KafkaListener(topics = "requestProductsAndOrdersDataFromOrchestrator", containerFactory = "kafkaListenerContainerFactoryTwo")
@@ -94,11 +86,35 @@ public class RecommendationController {
         log.info("Redirect request to Database 'get all products and orders'");
     }
 
+    @KafkaListener(topics = "sendRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void sendRecommendedProductsData(ConsumerRecord<String, String> record) {
+        log.info("Get message from Py module: " + record.value());
+        //todo здесь метод отправки данных в React
+//        messageProducer.sendMessage(record.value(), "dataForRecommendationComponent");
+        messageProducer.sendMessageToWebSocket("/topic/dataForRecommendationComponent", record.value());
+        log.info("Redirect request to React with recommended products data (cosine similarity)");
+    }
+
+    @KafkaListener(topics = "sendRecommendedCategoryProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void sendRecommendedCategoryProductsData(ConsumerRecord<String, String> record) {
+        log.info("Get message from Py module: " + record.value());
+        //todo здесь метод отправки данных в React
+        messageProducer.sendMessage(record.value(), "categoryDataForRecommendationComponent");
+        log.info("Redirect request to React with recommended products data (categories)");
+    }
+
     @KafkaListener(topics = "sendBasketRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
-    public void getRecommendedBasketProductsData(ConsumerRecord<String, String> record) {
+    public void sendRecommendedBasketProductsData(ConsumerRecord<String, String> record) {
         log.info("Get message from Py module: " + record.value());
         //todo здесь метод отправки данных в React
         messageProducer.sendMessage(record.value(), "basketDataForRecommendationComponent");
         log.info("Redirect request to React with recommended products data (basket)");
+    }
+
+    @CrossOrigin
+    @MessageMapping("/sendRecommendedProductsData")
+    @SendTo("/topic/dataForRecommendationComponent")
+    public Message broadcastGroupMessage(@Payload Message message) {
+        return message;
     }
 }
