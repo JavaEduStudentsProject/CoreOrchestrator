@@ -76,6 +76,7 @@ public class FrontController {
         log.info("Get request from Front 'save products'");
         log.info("Products: " + products);
         messageProducer.sendMessage(products, "save");
+        messageProducer.sendMessage(products, "SaveHamsters");
         log.info("Redirect request to Database 'save products'", products);
     }
 
