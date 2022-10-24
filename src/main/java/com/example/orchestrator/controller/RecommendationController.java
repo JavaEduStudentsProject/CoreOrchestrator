@@ -91,16 +91,17 @@ public class RecommendationController {
         log.info("Get message from Py module: " + record.value());
         //todo здесь метод отправки данных в React
 //        messageProducer.sendMessage(record.value(), "dataForRecommendationComponent");
-        messageProducer.sendMessageToWebSocket("/topic/dataForRecommendationComponent", record.value());
+        messageProducer.sendMessageToWebSocket("/topic/cosineSimData", record.value());
         log.info("Redirect request to React with recommended products data (cosine similarity)");
     }
 
-    @KafkaListener(topics = "sendRecommendedCategoryProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
-    public void sendRecommendedCategoryProductsData(ConsumerRecord<String, String> record) {
+    @KafkaListener(topics = "sendRecommendedBestProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
+    public void sendRecommendedBestProductsData(ConsumerRecord<String, String> record) {
         log.info("Get message from Py module: " + record.value());
         //todo здесь метод отправки данных в React
-        messageProducer.sendMessage(record.value(), "categoryDataForRecommendationComponent");
-        log.info("Redirect request to React with recommended products data (categories)");
+//        messageProducer.sendMessage(record.value(), "categoryDataForRecommendationComponent");
+        messageProducer.sendMessageToWebSocket("/topic/bestProductData", record.value());
+        log.info("Redirect request to React with recommended best products data");
     }
 
     @KafkaListener(topics = "sendBasketRecommendedProductsData", containerFactory = "kafkaListenerContainerFactoryTwo")
@@ -113,8 +114,15 @@ public class RecommendationController {
 
     @CrossOrigin
     @MessageMapping("/sendRecommendedProductsData")
-    @SendTo("/topic/dataForRecommendationComponent")
-    public Message broadcastGroupMessage(@Payload Message message) {
+    @SendTo("/topic/cosineSimData")
+    public Message broadcastCosineSimMessage(@Payload Message message) {
+        return message;
+    }
+
+    @CrossOrigin
+    @MessageMapping("/sendRecommendedBestProductsData")
+    @SendTo("/topic/bestProductData")
+    public Message broadcastBestProductMessage(@Payload Message message) {
         return message;
     }
 }
