@@ -71,10 +71,11 @@ public class RecommendationController {
     @CrossOrigin
     @GetMapping("/basket_request_from_react/{productsInBasketArray}")
     public List initBasketRequestFromReact(@PathVariable("productsInBasketArray") String productsInBasketArray) {
-        log.info("Get request from front, userId: " + productsInBasketArray);
+        log.info("Get request from front, product's id array: " + productsInBasketArray);
         messageProducer.sendMessage(productsInBasketArray, "requestForUserBasket");
+        log.info("Redirect basket request to Py module (first topic");
         messageProducer.sendMessage(productsInBasketArray, "syncRequestForUserBasket");
-        log.info("Redirect basket request to Py module");
+        log.info("Redirect basket request to Py module (second topic)");
         return Arrays.asList("{'Orchestrator answer': 'got your request'}");
     }
 
@@ -108,7 +109,8 @@ public class RecommendationController {
     public void sendRecommendedBasketProductsData(ConsumerRecord<String, String> record) {
         log.info("Get message from Py module: " + record.value());
         //todo здесь метод отправки данных в React
-        messageProducer.sendMessage(record.value(), "basketDataForRecommendationComponent");
+//        messageProducer.sendMessage(record.value(), "basketDataForRecommendationComponent");
+        messageProducer.sendMessageToWebSocket("/topic/basketCategoriesData", record.value());
         log.info("Redirect request to React with recommended products data (basket)");
     }
 
@@ -123,6 +125,13 @@ public class RecommendationController {
     @MessageMapping("/sendRecommendedBestProductsData")
     @SendTo("/topic/bestProductData")
     public Message broadcastBestProductMessage(@Payload Message message) {
+        return message;
+    }
+
+    @CrossOrigin
+    @MessageMapping("/sendBasketRecommendedProductsData")
+    @SendTo("/topic/basketCategoriesData")
+    public Message broadcastBasketCategoriesMessage(@Payload Message message) {
         return message;
     }
 }
