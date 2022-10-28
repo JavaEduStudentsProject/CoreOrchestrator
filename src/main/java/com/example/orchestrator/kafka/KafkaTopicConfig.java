@@ -131,4 +131,14 @@ public class KafkaTopicConfig {
     public NewTopic frontUpdateUser() {
         return new NewTopic("frontUpdateUser", 1, (short) 1);
     }
+
+    @Bean
+    public NewTopic sendRate() {
+        return new NewTopic("saveRateDB", 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic sendRateIdProduct() {
+        return new NewTopic("sendIdProductRateDB", 1, (short) 1);
+    }
 }

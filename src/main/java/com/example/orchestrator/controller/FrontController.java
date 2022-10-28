@@ -3,12 +3,16 @@ package com.example.orchestrator.controller;
 import com.example.orchestrator.kafka.MessageListener;
 import com.example.orchestrator.kafka.MessageProducer;
 import com.example.orchestrator.kafka.MessageProducerFile;
+import com.example.orchestrator.request.RatingRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.File;
 
 @Slf4j
@@ -62,6 +66,13 @@ public class FrontController {
         log.info("Get request from Front 'save order'");
         messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
         log.info("Redirect request to Database 'save order' order = {}", order);
+    }
+
+    @PostMapping("/createRating")
+    public void saveRating (@Valid @RequestBody String ratingRequest){
+        log.info("Get request from Front 'save rate'");
+        messageProducer.sendMessage(ratingRequest, "saveRateDB");
+        log.info("Redirect request to Database 'save rate' rate = {}", ratingRequest);
     }
 
     @KafkaListener(topics = "frontSaveProduct", containerFactory = "kafkaListenerContainerFactory")
