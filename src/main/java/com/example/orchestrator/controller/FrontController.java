@@ -56,6 +56,13 @@ public class FrontController {
         log.info("Products from Database: {}", products);
         return products;
     }
+    //для получения ордеров из бд
+//    @GetMapping("/orders")
+//    public String getAllOrdersFromDB (){
+//        String orders = ml.listenerGetAllOrdersResponse();
+//        log.info("Orders from Database: {}", orders);
+//        return orders;
+//    }
 
     @PostMapping("/createOrder")
     public void saveOrderInDB (@RequestBody String order){
@@ -93,12 +100,6 @@ public class FrontController {
         messageProducer.sendMessage(id, "updateProductDB");// направляем запрос в базу
         log.info("Redirect request to Database 'update product' with id = {}", id);
     }
-//    @KafkaListener(topics = "frontSaveOrder", containerFactory = "kafkaListenerContainerFactory")
-//    public void listenerSaveOrder(String order) {
-//        log.info("Get request from Front 'save order'");
-//        messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
-//        log.info("Redirect request to Database 'save order' order = {}", order);
-//    }
 
     @KafkaListener(topics = "frontSaveOrders", containerFactory = "kafkaListenerContainerFactoryTwo")
     public void listenerSaveOrders(String orders) {
