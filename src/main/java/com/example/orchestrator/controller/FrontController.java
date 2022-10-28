@@ -3,7 +3,10 @@ package com.example.orchestrator.controller;
 import com.example.orchestrator.kafka.MessageListener;
 import com.example.orchestrator.kafka.MessageProducer;
 import com.example.orchestrator.kafka.MessageProducerFile;
+import com.example.orchestrator.kafka.MessageProducerReview;
+import com.example.orchestrator.model.JsonReview;
 import com.example.orchestrator.request.RatingRequest;
+import com.example.orchestrator.response.MessageResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -23,20 +26,22 @@ import java.io.File;
 public class FrontController {
     MessageProducer messageProducer;
     MessageProducerFile messageProducerFile;
+    MessageProducerReview messageProducerReview;
     @Autowired
     MessageListener ml;
 
     @Autowired
-    public FrontController(MessageProducer messageProducer, MessageProducerFile messageProducerFile) {
+    public FrontController(MessageProducer messageProducer, MessageProducerFile messageProducerFile, MessageProducerReview messageProducerReview) {
         this.messageProducer = messageProducer;
         this.messageProducerFile = messageProducerFile;
+        this.messageProducerReview = messageProducerReview;
     }
 
     @GetMapping()
     @KafkaListener(topics = "parseFileFront", containerFactory = "kafkaListenerContainerFactory")
     //Добавить файл на вход
     public void listenerParseFile() {
-       // File file = new File("CoreOrchestrator/file.csv");
+        // File file = new File("CoreOrchestrator/file.csv");
         File file = new File("CoreOrchestrator/products.json");
 
         log.info("Listener orchestrator: file from Front {}", file.getName());
@@ -55,7 +60,7 @@ public class FrontController {
     }
 
     @GetMapping("/products")
-    public String getAllProductsFromDB (){
+    public String getAllProductsFromDB() {
         String products = ml.listenerGetAllProductsResponse();
         log.info("Products from Database: {}", products);
         return products;
@@ -69,14 +74,14 @@ public class FrontController {
 //    }
 
     @PostMapping("/createOrder")
-    public void saveOrderInDB (@RequestBody String order){
+    public void saveOrderInDB(@RequestBody String order) {
         log.info("Get request from Front 'save order'");
         messageProducer.sendMessage(order, "saveOrderDB");// направляем запрос в базу
         log.info("Redirect request to Database 'save order' order = {}", order);
     }
 
     @PostMapping("/createRating")
-    public void saveRating (@Valid @RequestBody String ratingRequest){
+    public void saveRating(@Valid @RequestBody String ratingRequest) {
         log.info("Get request from Front 'save rate'");
         messageProducer.sendMessage(ratingRequest, "saveRateDB");
         log.info("Redirect request to Database 'save rate' rate = {}", ratingRequest);
@@ -141,6 +146,7 @@ public class FrontController {
         messageProducer.sendMessage(id, "updateOrderDB");// направляем запрос в базу
         log.info("Redirect request to Database 'update order' with id = {}", id);
     }
+
     @KafkaListener(topics = "frontSaveUser", containerFactory = "kafkaListenerContainerFactory")
     public void listenerSaveUser(String user) {
 
@@ -170,6 +176,16 @@ public class FrontController {
         log.info("Redirect request to Database 'update order' with id = {}", id);
     }
 
-
+    @PostMapping("/review")
+    public ResponseEntity<?> saveReview(@Valid @RequestBody JsonReview review) {
+        JsonReview newReview = new JsonReview(review.getProductId(),
+                review.getRating(),
+                review.getUserId(),
+                review.getReview()
+        );
+        messageProducerReview.sendMessage(newReview, "SaveReview");
+        log.info("The review {} was sent to Database for save", newReview.getReview());
+        return ResponseEntity.ok(new MessageResponse("Thanks for your feedback!"));
+    }
 
 }
