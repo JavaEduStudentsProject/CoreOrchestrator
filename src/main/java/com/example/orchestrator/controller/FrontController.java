@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.File;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -65,13 +66,15 @@ public class FrontController {
         log.info("Products from Database: {}", products);
         return products;
     }
+
     //для получения ордеров из бд
-//    @GetMapping("/orders")
-//    public String getAllOrdersFromDB (){
-//        String orders = ml.listenerGetAllOrdersResponse();
-//        log.info("Orders from Database: {}", orders);
-//        return orders;
-//    }
+    @GetMapping("/orders")
+    public String getAllOrdersFromDB() {
+        String orders = ml.listenerGetAllOrdersResponse();
+        log.info("Orders from Database: {}", orders);
+        return orders;
+    }
+
 
     @PostMapping("/createOrder")
     public void saveOrderInDB(@RequestBody String order) {
