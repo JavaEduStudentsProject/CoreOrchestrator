@@ -24,6 +24,7 @@ public class MessageListener {
     KafkaConsumerConfig config;
     private final String topicProducts = "sendALlProducts";
     private final String sendHamster = "SendHamster";
+    private final String sendReviews = "sendReviews";
 
     private final String sendOrdersDataFromDB = "sendOrdersDataFromDB";
 
@@ -62,6 +63,20 @@ public class MessageListener {
         }
         consumer.close();
         return orders;
+    }
+
+    public String listenerGetAllReviewsResponse() {
+        log.info("Sent request to Database - get reviews");
+        messageProducer.sendMessage("get all reviews", "GetAllReviews");
+        String reviews = null;
+        Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
+        consumer.subscribe(Collections.singleton(sendReviews));
+        ConsumerRecords<String, String> ordersRecords = consumer.poll(10000);
+        for (ConsumerRecord<String, String> record : ordersRecords) {
+            reviews = record.value();
+        }
+        consumer.close();
+        return reviews;
     }
 }
 

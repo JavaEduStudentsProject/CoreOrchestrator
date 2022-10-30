@@ -28,12 +28,12 @@ public class JsonReview {
 
     @Override
     public String toString() {
-        return "JsonReview{" +
-                "id='" + id + '\'' +
-                ", productId='" + productId + '\'' +
-                ", rating='" + rating + '\'' +
-                ", userId='" + userId + '\'' +
-                ", review='" + review + '\'' +
-                '}';
+        return "{" +
+                "\"id\":\"" + id + '\"' +
+                ", \"productId\":\"" + productId + '\"' +
+                ", \"rating\":\"" + rating + '\"' +
+                ", \"userId\":\"" + userId + '\"' +
+                ", \"review\":\"" + review + '\"' +
+                "}";
     }
 }

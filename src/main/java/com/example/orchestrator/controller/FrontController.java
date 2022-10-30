@@ -75,6 +75,13 @@ public class FrontController {
         return orders;
     }
 
+    @GetMapping("/reviews")
+    public String getAllReviewsFromDB() {
+        String reviews = ml.listenerGetAllReviewsResponse();
+        log.info("Reviews from Database: {}", reviews);
+        return reviews;
+    }
+
 
     @PostMapping("/createOrder")
     public void saveOrderInDB(@RequestBody String order) {
