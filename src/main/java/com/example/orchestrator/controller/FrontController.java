@@ -61,12 +61,12 @@ public class FrontController {
         return products;
     }
     //для получения ордеров из бд
-//    @GetMapping("/orders")
-//    public String getAllOrdersFromDB (){
-//        String orders = ml.listenerGetAllOrdersResponse();
-//        log.info("Orders from Database: {}", orders);
-//        return orders;
-//    }
+    @GetMapping("/orders")
+    public String getAllOrdersFromDB (){
+        String orders = ml.listenerGetAllOrdersResponse();
+        log.info("Orders from Database: {}", orders);
+        return orders;
+    }
 
     @PostMapping("/createOrder")
     public void saveOrderInDB (@RequestBody String order){

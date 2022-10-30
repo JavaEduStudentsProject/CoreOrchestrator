@@ -23,7 +23,7 @@ public class MessageListener {
     @Autowired
     KafkaConsumerConfig config;
     private final String topicProducts = "sendALlProducts";
-//    private final String SendHamster = "SendHamster";
+    private final String SendHamster = "SendHamster";
     public MessageListener() {
     }
 
@@ -44,20 +44,20 @@ public class MessageListener {
     }
 
     //для получения ордеров из бд
-//    public String listenerGetAllOrdersResponse() {
-//        log.info("Sent request to Database - get orders");
-//        messageProducer.sendMessage("get all orders", "GetAllOrders");
-//        String orders = null;
-//        Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
-//        consumer.subscribe(Collections.singleton(SendHamster));
-//
-//        ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
-//        for (ConsumerRecord<String,String> record : productsRecords)
-//        {
-//            orders = record.value();
-//        }
-//        consumer.close();
-//        return orders;
-//    }
+    public String listenerGetAllOrdersResponse() {
+        log.info("Sent request to Database - get orders");
+        messageProducer.sendMessage("get all orders", "GetAllOrders");
+        String orders = null;
+        Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
+        consumer.subscribe(Collections.singleton(SendHamster));
+
+        ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
+        for (ConsumerRecord<String,String> record : productsRecords)
+        {
+            orders = record.value();
+        }
+        consumer.close();
+        return orders;
+    }
 }
 
