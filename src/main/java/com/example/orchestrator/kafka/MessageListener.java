@@ -23,10 +23,12 @@ public class MessageListener {
     @Autowired
     KafkaConsumerConfig config;
     private final String topicProducts = "sendALlProducts";
+
     private final String sendHamster = "SendHamster";
     private final String sendReviews = "sendReviews";
 
     private final String sendOrdersDataFromDB = "sendOrdersDataFromDB";
+
 
     public MessageListener() {
     }
@@ -59,6 +61,7 @@ public class MessageListener {
         consumer.subscribe(Collections.singleton(sendHamster));
                 ConsumerRecords<String, String> ordersRecords = consumer.poll(10000);
         for (ConsumerRecord<String, String> record : ordersRecords) {
+
             orders = record.value();
         }
         consumer.close();
@@ -78,5 +81,6 @@ public class MessageListener {
         consumer.close();
         return reviews;
     }
+
 }
 

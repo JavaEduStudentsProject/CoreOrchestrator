@@ -69,11 +69,14 @@ public class FrontController {
 
     //для получения ордеров из бд
     @GetMapping("/orders")
+
     public String getAllOrdersFromDB() {
+
         String orders = ml.listenerGetAllOrdersResponse();
         log.info("Orders from Database: {}", orders);
         return orders;
     }
+
 
     @GetMapping("/reviews")
     public String getAllReviewsFromDB() {
