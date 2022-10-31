@@ -23,41 +23,64 @@ public class MessageListener {
     @Autowired
     KafkaConsumerConfig config;
     private final String topicProducts = "sendALlProducts";
-    private final String SendHamster = "SendHamster";
+
+    private final String sendHamster = "SendHamster";
+    private final String sendReviews = "sendReviews";
+
+    private final String sendOrdersDataFromDB = "sendOrdersDataFromDB";
+
+
     public MessageListener() {
     }
 
     public String listenerGetAllProductsResponse() {
         log.info("Sent request to Database - get products");
         messageProducer.sendMessage("get all products", "getAllProductsDB");
-        String products= null;
+
+
+        String products = null;
         Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
         consumer.subscribe(Collections.singleton(topicProducts));
 
+
         ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
-        for (ConsumerRecord<String,String> record : productsRecords)
-        {
+        for (ConsumerRecord<String, String> record : productsRecords) {
             products = record.value();
         }
         consumer.close();
         return products;
     }
 
-    //для получения ордеров из бд
+    //   для получения ордеров из бд
     public String listenerGetAllOrdersResponse() {
         log.info("Sent request to Database - get orders");
-        messageProducer.sendMessage("get all orders", "GetAllOrders");
+       messageProducer.sendMessage("get all orders", "GetAllOrders");
+
         String orders = null;
         Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
-        consumer.subscribe(Collections.singleton(SendHamster));
+        consumer.subscribe(Collections.singleton(sendHamster));
+                ConsumerRecords<String, String> ordersRecords = consumer.poll(10000);
+        for (ConsumerRecord<String, String> record : ordersRecords) {
 
-        ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
-        for (ConsumerRecord<String,String> record : productsRecords)
-        {
             orders = record.value();
         }
         consumer.close();
         return orders;
     }
+
+    public String listenerGetAllReviewsResponse() {
+        log.info("Sent request to Database - get reviews");
+        messageProducer.sendMessage("get all reviews", "GetAllReviews");
+        String reviews = null;
+        Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
+        consumer.subscribe(Collections.singleton(sendReviews));
+        ConsumerRecords<String, String> ordersRecords = consumer.poll(10000);
+        for (ConsumerRecord<String, String> record : ordersRecords) {
+            reviews = record.value();
+        }
+        consumer.close();
+        return reviews;
+    }
+
 }
 
