@@ -12,14 +12,14 @@ public class JsonReview {
     @Generated
     private String id;
     private String productId;
-    private Integer rating;
+    private Double rating;
     private String userId;
     private String review;
 
     public JsonReview() {
     }
 
-    public JsonReview(String productId, Integer rating, String userId, String review) {
+    public JsonReview(String productId, Double rating, String userId, String review) {
         this.productId = productId;
         this.rating = rating;
         this.userId = userId;
