@@ -14,7 +14,6 @@ import java.io.IOException;
 @CrossOrigin
 @RequestMapping("/api")
 public class ParserController {
-
     MessageProducer messageProducer;
     MessageProducerFile messageProducerFile;
 

@@ -19,7 +19,6 @@ import java.util.Properties;
 public class DataBaseController {
     MessageProducer messageProducer;
 
-
     private final String clientId = "myApplicationName";
     private final String groupId = "mygroupId";
     private final String endpoints = "localhost:9092";
@@ -33,14 +32,14 @@ public class DataBaseController {
     public DataBaseController(MessageProducer messageProducer) {
         this.messageProducer = messageProducer;
     }
-    // Получаю продукт от базы
+
     @KafkaListener(topics = "sendProductFromDB", containerFactory = "kafkaListenerContainerFactory")
     public void listenerGetProductResponse(String product) {
         log.info("Get response to a request from Database 'get product'");
         messageProducer.sendMessage(product, "sendProductToFront");
         log.info("Send response to front 'get product' = {}", product);
     }
-    //этого метода пока нет в бд
+
     @KafkaListener(topics = "sendALlProductsDB", containerFactory = "kafkaListenerContainerFactory")
     public void listenerGetAllProductsResponse(String products) {
         log.info("Get response to a request from Database 'get product'");
@@ -54,6 +53,5 @@ public class DataBaseController {
         messageProducer.sendMessage(product, "sendOrderToFront");
         log.info("Send response to front 'get order' = {}", product);
     }
-
 
 }

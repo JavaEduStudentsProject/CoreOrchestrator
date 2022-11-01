@@ -5,11 +5,9 @@ import com.example.orchestrator.kafka.MessageProducer;
 import com.example.orchestrator.kafka.MessageProducerFile;
 import com.example.orchestrator.kafka.MessageProducerReview;
 import com.example.orchestrator.model.JsonReview;
-import com.example.orchestrator.request.RatingRequest;
 import com.example.orchestrator.response.MessageResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.File;
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -40,9 +37,7 @@ public class FrontController {
 
     @GetMapping()
     @KafkaListener(topics = "parseFileFront", containerFactory = "kafkaListenerContainerFactory")
-    //Добавить файл на вход
     public void listenerParseFile() {
-        // File file = new File("CoreOrchestrator/file.csv");
         File file = new File("CoreOrchestrator/products.json");
 
         log.info("Listener orchestrator: file from Front {}", file.getName());
@@ -51,7 +46,6 @@ public class FrontController {
     }
 
     @GetMapping("/get")
-    // Гет продукт от фронта в базу//
     @KafkaListener(topics = "frontGetProduct", containerFactory = "kafkaListenerContainerFactory")
     public void listenerGetProduct() {
         String id = "728";
@@ -67,16 +61,12 @@ public class FrontController {
         return products;
     }
 
-    //для получения ордеров из бд
     @GetMapping("/orders")
-
     public String getAllOrdersFromDB() {
-
         String orders = ml.listenerGetAllOrdersResponse();
         log.info("Orders from Database: {}", orders);
         return orders;
     }
-
 
     @GetMapping("/reviews")
     public String getAllReviewsFromDB() {
@@ -84,7 +74,6 @@ public class FrontController {
         log.info("Reviews from Database: {}", reviews);
         return reviews;
     }
-
 
     @PostMapping("/createOrder")
     public void saveOrderInDB(@RequestBody String order) {

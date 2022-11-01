@@ -17,10 +17,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-
 @Slf4j
 @EnableKafka
-@Configuration//принимаем файл с фронта для парсера
+@Configuration
 public class ConsumerFileConfig {
 
     @Value(value = "${kafka.bootstrapAddress}")

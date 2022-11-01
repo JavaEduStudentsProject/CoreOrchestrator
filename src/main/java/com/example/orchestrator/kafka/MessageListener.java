@@ -27,8 +27,6 @@ public class MessageListener {
     private final String sendHamster = "SendHamster";
     private final String sendReviews = "sendReviews";
 
-    private final String sendOrdersDataFromDB = "sendOrdersDataFromDB";
-
 
     public MessageListener() {
     }
@@ -36,13 +34,9 @@ public class MessageListener {
     public String listenerGetAllProductsResponse() {
         log.info("Sent request to Database - get products");
         messageProducer.sendMessage("get all products", "getAllProductsDB");
-
-
         String products = null;
         Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
         consumer.subscribe(Collections.singleton(topicProducts));
-
-
         ConsumerRecords<String, String> productsRecords = consumer.poll(10000);
         for (ConsumerRecord<String, String> record : productsRecords) {
             products = record.value();
@@ -51,17 +45,14 @@ public class MessageListener {
         return products;
     }
 
-    //   для получения ордеров из бд
     public String listenerGetAllOrdersResponse() {
         log.info("Sent request to Database - get orders");
-       messageProducer.sendMessage("get all orders", "GetAllOrders");
-
+        messageProducer.sendMessage("get all orders", "GetAllOrders");
         String orders = null;
         Consumer<String, String> consumer = (Consumer<String, String>) factoryString.getConsumerFactory().createConsumer();
         consumer.subscribe(Collections.singleton(sendHamster));
-                ConsumerRecords<String, String> ordersRecords = consumer.poll(10000);
+        ConsumerRecords<String, String> ordersRecords = consumer.poll(10000);
         for (ConsumerRecord<String, String> record : ordersRecords) {
-
             orders = record.value();
         }
         consumer.close();

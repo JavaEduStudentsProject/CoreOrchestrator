@@ -20,5 +20,4 @@ public class JsonHamsterUser {
     private Integer id;
     private String userDetails;
 
-
 }

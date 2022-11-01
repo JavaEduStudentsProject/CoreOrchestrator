@@ -18,10 +18,8 @@ import java.util.Map;
 @Slf4j
 @Configuration
 public class KafkaProducerConfig {
-
     @Value("${kafka.bootstrapAddress}")
     private String bootstrapAddress;
-
     @Bean
     public ProducerFactory<String, String> producerFactory() {
         Map<String, Object> config = new HashMap<>();

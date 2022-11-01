@@ -1,6 +1,5 @@
 package com.example.orchestrator.kafka;
 
-
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,17 +28,6 @@ public class KafkaTopicConfig {
         return new NewTopic("parseFileFront", 1, (short) 1);
     }
 
-    //нужно ли создавать топик конфиги для продюсера?
-//    @Bean
-//    public NewTopic parseFileParser() {
-//        log.info("Create orchestrator topic parseFileParser");
-//        return new NewTopic("parseFileParser", 1, (short) 1);
-//    }
-//    @Bean
-//    public NewTopic getProductFromDB() {
-//        log.info("Create orchestrator topic getProductFromDB");
-//        return new NewTopic("getProductFromDB", 1, (short) 1);
-//    }
     @Bean
     public NewTopic frontGetProduct() {
         return new NewTopic("frontGetProduct", 1, (short) 1);
@@ -79,11 +67,6 @@ public class KafkaTopicConfig {
     public NewTopic sendProductFromDB() {
         return new NewTopic("sendProductFromDB", 1, (short) 1);
     }
-//    @Bean
-//    public NewTopic sendProductToFront() {
-//        log.info("Create orchestrator topic sendProductToFront");
-//        return new NewTopic("sendProductToFront", 1, (short) 1);
-//    }
 
     @Bean
     public NewTopic sendAllProduct() {
@@ -119,14 +102,17 @@ public class KafkaTopicConfig {
     public NewTopic frontSaveUser() {
         return new NewTopic("frontSaveUser", 1, (short) 1);
     }
+
     @Bean
     public NewTopic frontGetUser() {
         return new NewTopic("frontGetUser", 1, (short) 1);
     }
+
     @Bean
     public NewTopic frontDeleteUser() {
         return new NewTopic("frontDeleteUser", 1, (short) 1);
     }
+
     @Bean
     public NewTopic frontUpdateUser() {
         return new NewTopic("frontUpdateUser", 1, (short) 1);
